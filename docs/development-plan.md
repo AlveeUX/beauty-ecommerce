@@ -6,7 +6,7 @@
 | Last updated | 2026-10-19 |
 | Derived from | `PRD.md` v0.1 (requirement IDs, Figma inventory in PRD §6.1), `e2e-testing-strategy.md` |
 | Current status | P0 to P6 `PASSED`, plus P4b (product page layouts, D-038) `PASSED` 2026-10-20. P10 (content pages) `PASSED` for the storefront 2026-10-20 (D-040..D-043: policy, store location, About, Contact, FAQs, 404, blog, newsletter). P7+ not started and needs approval. |
-| Restrictions | Local only. No GitHub push, no Vercel/deployment, no Git history changes, no real payment/shipping/email providers. |
+| Restrictions | Local only, except the user's own GitHub repo (D-046: commit locally, push on request). No Vercel/deployment, no Git history rewrites, no real payment/shipping/email providers. |
 
 Technology items below are **proposed** (PRD §11.1) and become binding only after approval in P0.
 

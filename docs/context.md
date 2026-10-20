@@ -12,7 +12,7 @@ Build a scalable e-commerce platform — **customer storefront + administration 
 
 ## 3. Local project root and repository status
 - Root: `C:\Projects\beauty-ecommerce`
-- Started empty (verified 2026-10-19). **P1 scaffold now exists** (Next.js app, tooling, DB layer). **Still not a Git repository** — do not run `git init` or alter history without approval.
+- Started empty (verified 2026-10-19). **P1 scaffold now exists** (Next.js app, tooling, DB layer). **Git repository since D-046:** branch `main`, remote `origin` = https://github.com/AlveeUX/beauty-ecommerce.git. Commit locally when work is finished, ask before each push, never force-push or rewrite history. `tests/visual/baselines/` is committed at the user's request; `.vercelignore` keeps it out of Vercel uploads. No deployment has been made.
 - Toolchain verified: Node v24.18.0, npm 11.16.0, Python 3.14.5. `pnpm` and `jq` not installed.
 
 ## 4. Mandatory technologies
@@ -84,9 +84,9 @@ Every module passes the 12-step E2E lifecycle before it is "done"; untested ≠ 
 Provisional defaults for unanswered OQs: `decision-log.md` D-004. Full open-question list: `PRD.md` §14.3.
 
 ## 17. Known limitations and unresolved questions
-- Only ~7 of 60 frames were visually reviewed; the rest were inventoried from metadata (names, sizes, text layers). Review each frame fully at the start of its phase.
+- All 57 page/overlay frames are now built and checked against Figma (`figma-page-checklist.md`); 3 frames are reference sheets.
 - Not designed in Figma: admin dashboard, mobile/tablet, account/order history, order confirmation, tracking result, search results, 404/500, loading/error states.
-- Unclear frames: `3:15517` (second "Wishlist page", 1000 px tall — likely a drawer), `3:28374` (second "FAQs"), `3:1749` (Menu dropdown, not reviewed).
+- Resolved frames: `3:15517` is the wishlist popup (D-047), `3:1749` the light header dropdown (D-048), `3:1452` the Shop mega menu (D-049).
 - Design copy is template placeholder (conflicting thresholds/addresses/prices).
 
 ## 18. Project documents
@@ -103,11 +103,11 @@ If a decision changes: update this file plus the owning document(s) (stack → P
 - **P0 — Discovery & approval: PASSED (provisional)** — docs approved by instruction; unanswered OQs use defaults (D-004).
 - **P2 (tokens, components, shell), P3 (data model + catalog backend), P4 (Home, Shop, Categories, Product, Search): PASSED 2026-10-19** with documented gaps (decision-log D-029). Gate evidence: decision-log section 5 (typecheck, lint, 55 Vitest, build, 42 Playwright, axe 0 critical/serious).
 - **P1 — Foundation & local environment: PASSED (2026-10-19)** — Next.js app, strict TS, ESLint/Prettier, SQLite + Drizzle migrations, `/api/health`, Vitest, Playwright + axe, guarded test-reset, `.env.example`, README, CLAUDE.md. Evidence: `decision-log.md` §4 (typecheck, lint, format, 2/2 unit, build, 3/3 E2E-SMOKE-01).
-- Cart (server, cookie token), wishlist and compare (localStorage) are built (P5). **P6 (accounts, checkout, orders, tracking) PASSED 2026-10-20 (D-037):** scrypt auth, server sessions, throttling, guest-to-account merge, checkout with idempotent order placement and stock reservation, local payment gateway, order state machine, email outbox, tracking, account area. **Product page layouts (all 10 Figma layouts, zoom, countdown, subscribe, colour chips) built 2026-10-20 (D-038)** and chosen by `?layout=<id>` or `products.pdp_layout`. **Policy pages (`/policy/privacy|shipping|returns|terms`) built 2026-10-20 (D-040), first part of P10.** All ten Shop listing layouts are built (D-045, `?layout=`) and the last four Figma frames (quick view, size guide, share, wishlist popup; D-047), so every Figma frame is built (docs/figma-page-checklist.md: 57 of 57). Content pages, blog and newsletter (P10) are built (D-041..D-043; Vitest 126; Playwright 149/149 in the last full run, 2026-10-20, 6.9 min). Not done: admin dashboard (P7-P9, including managing posts, comments, contact messages, subscribers), responsive/mobile polish (P11), no Git, no deployment.
+- Cart (server, cookie token), wishlist and compare (localStorage) are built (P5). **P6 (accounts, checkout, orders, tracking) PASSED 2026-10-20 (D-037):** scrypt auth, server sessions, throttling, guest-to-account merge, checkout with idempotent order placement and stock reservation, local payment gateway, order state machine, email outbox, tracking, account area. **Product page layouts (all 10 Figma layouts, zoom, countdown, subscribe, colour chips) built 2026-10-20 (D-038)** and chosen by `?layout=<id>` or `products.pdp_layout`. **Policy pages (`/policy/privacy|shipping|returns|terms`) built 2026-10-20 (D-040), first part of P10.** All ten Shop listing layouts are built (D-045, `?layout=`) and the last four Figma frames (quick view, size guide, share, wishlist popup; D-047), so every Figma frame is built (docs/figma-page-checklist.md: 57 of 57). Content pages, blog and newsletter (P10) are built (D-041..D-043; Vitest 126; Playwright 149/149 in the last full run, 2026-10-20, 6.9 min). Header dropdowns on Home use the light panel (D-048) and every Shop mega-menu entry opens its own page, with the open page highlighted and a sticky add-to-cart bar via `?sticky=1` (D-049). Not done: admin dashboard (P7-P9, including managing posts, comments, contact messages, subscribers), responsive/mobile polish (P11), no deployment (Git/GitHub set up, D-046).
 - Not verified: clean-clone install on another machine; Firefox/WebKit; viewports below 1920.
 
 ## 20. Immediate next actions
 1. **See the storefront locally:** `npm run dev` then open http://localhost:3000 (Home), `/shop`, `/categories`, `/product/the-renewal-serum`, `/search?q=serum`. Run `npm run db:migrate && npm run db:seed` first if the database is empty.
-2. **P5 (cart, wishlist, compare) PASSED 2026-10-19 (D-036).** P6 PASSED (D-037). P7 (admin foundation) needs the user's approval before starting. Admin UX wireframes (P7-T01) can be drafted in parallel.
+2. **P5 (cart, wishlist, compare) PASSED 2026-10-19 (D-036).** P6 PASSED (D-037). P7 (admin foundation) or P11 (mobile/tablet layouts) is next and needs the user's approval before starting; the working tree is committed and pushed (main). Admin UX wireframes (P7-T01) can be drafted in parallel.
 3. User still to confirm provisional defaults (D-004, D-005, D-007, D-008) and the deviations in D-029.
 4. Before coding any task: write its task contract (plan section 3) and re-fetch the frame from Figma.

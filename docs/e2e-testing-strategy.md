@@ -228,7 +228,7 @@ One report per module run, stored in `tests/reports/<module>/<run-id>.md`:
 |---|---|
 | Test run ID | `RUN-<YYYYMMDD>-<module>-<nn>` |
 | Module and task ID | e.g., `storefront/checkout`, `P6-T05` |
-| Source revision | commit hash if a repo exists; otherwise a timestamp + file hash note (**no Git history may be altered**) |
+| Source revision | commit hash (repo exists since D-046; **no Git history may be altered**) |
 | Environment | OS, Node version, DB path, app mode (dev/prod build) |
 | Browser & viewport | e.g., Chromium 1xx, 1920×1080 |
 | Scenarios executed | list of test IDs |

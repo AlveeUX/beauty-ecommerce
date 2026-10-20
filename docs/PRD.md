@@ -33,7 +33,7 @@ A feature being drawn in Figma does **not** make it MVP. Priorities (MUST / SHOU
 
 | Source | Finding | Tag |
 |---|---|---|
-| Repository `C:\Projects\beauty-ecommerce` | **At discovery time:** empty directory, not a Git repository. *(Since P1: scaffold added; still not a Git repo.)* | V |
+| Repository `C:\Projects\beauty-ecommerce` | **At discovery time:** empty directory, not a Git repository. *(Since P1: scaffold added. Since D-046: Git repo with GitHub remote `AlveeUX/beauty-ecommerce`.)* | V |
 | Local toolchain | Node v24.18.0, npm 11.16.0, Python 3.14.5. `pnpm` not installed. | V |
 | Figma file `sXBQCd1Az2To21ejk56Yjc` ("Ecommerce (Copy)") | One page ("Page 1", node `0:1`) with **60 top-level frames**: 58 at 1920 px wide, `3:42651` at 1940 px, `3:42576` at 4275 px. | V |
 | Figma MCP | `get_metadata`, `get_screenshot`, `get_variable_defs`, `get_design_context` all responded. `get_variable_defs` on `3:42576` returned `{}` (no variables on that frame). Raw metadata for the whole page was ~3.2 MB, so inspection was done incrementally. | V |
@@ -65,7 +65,7 @@ See section 3.
 - **Out (for now):** production hosting, real payment/shipping providers, GitHub, Vercel, mobile native apps, multi-vendor marketplace (see 4.3).
 
 ### 2.6 Local-first development constraint (V — user instruction)
-All work runs on the developer machine. No pushing to GitHub, no Vercel deploys, no production configuration, no Git history changes. No remote database, payment provider or cloud API is assumed to exist.
+All work runs on the developer machine. No Vercel deploys, no production configuration, no Git history changes or force-pushes; commits and pushes only to the user's own repository (D-046), each push on request. No remote database, payment provider or cloud API is assumed to exist.
 
 ### 2.7 Mandatory technology (V — user instruction)
 HTML5, CSS3 and JavaScript must remain part of the solution regardless of other choices. See section 10 and `context.md` for how this is honored.
@@ -190,7 +190,7 @@ Conventions: *Pri* = MUST / SHOULD / COULD. *Ev* = evidence tag. Preconditions a
 | ID | Requirement | Actor | Acceptance criteria | Pri | Ev | Figma |
 |---|---|---|---|---|---|---|
 | WSH-001 | Wishlist page and empty state. | Shopper | Toggling heart on any card updates header count and the page. | SHOULD | V | `3:20784`, `3:21193` |
-| WSH-002 | Wishlist drawer/popup (frame `3:15517`, 1000 px tall, same name as page). | Shopper | **Unclear** whether drawer or duplicate (see 6.1). | COULD | OQ | `3:15517` |
+| WSH-002 | Wishlist drawer/popup (frame `3:15517`, 1000 px tall, same name as page). | Shopper | **Resolved (D-047):** it is the wishlist popup, built. | COULD | OQ | `3:15517` |
 | WSH-003 | Wishlist persistence. | Shopper | Guest: local storage; logged in: server. | SHOULD | P | — |
 | CMP-001 | Compare page (rating, SKU, size, price, stock, add to cart) and empty state; compare popup. | Shopper | Max items limit set (OQ-10); removing items works. | COULD | V | `3:21520`, `3:21946`, `3:15903` |
 
