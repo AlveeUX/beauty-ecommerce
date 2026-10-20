@@ -1,0 +1,11 @@
+# Files that `vercel deploy` (CLI) should not upload. Git-based deploys never include tests/ in the app anyway.
+# Screenshots and Figma references used only by the local tests/visual scripts
+tests/visual/baselines
+tests/visual/references
+
+# Test output and local data
+test-results
+playwright-report
+data
+uploads
+*.tsbuildinfo
