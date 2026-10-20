@@ -73,7 +73,12 @@ export function HomeHeader({
                   <ul className={styles.dropdown} data-menu-panel>
                     {item.children.map((child) => (
                       <li key={child.href + child.label}>
-                        <NavLink href={child.href} match={child.match}>
+                        <NavLink
+                          href={child.href}
+                          match={child.match}
+                          className={styles.dropLink}
+                          activeClassName={styles.current}
+                        >
                           {child.label}
                           {child.badge ? <MenuBadge kind={child.badge} /> : null}
                         </NavLink>

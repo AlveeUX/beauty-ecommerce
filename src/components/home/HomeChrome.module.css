@@ -105,17 +105,20 @@
   text-decoration-thickness: 6.5%;
 }
 
+/* Light dropdown panel, the same as the other pages' header (Figma 3:1749): cream panel, dark uppercase
+   items, the current page red and underlined, a badge after the label. */
 .dropdown {
   position: absolute;
   top: 100%;
-  left: -16px;
-  min-width: 220px;
-  padding: 12px 0;
+  left: 0;
+  width: 270px;
+  padding: 17px 30px 27px;
   flex-direction: column;
   align-items: stretch;
   gap: 0;
-  background: var(--color-bg-dark);
-  border: 1px solid var(--color-border-dark);
+  background: var(--color-bg-body);
+  border-top: 1px dashed var(--color-border-light);
+  color: var(--color-dark-01);
   opacity: 0;
   visibility: hidden;
   transform: translateY(6px);
@@ -136,18 +139,26 @@
   transform: none;
 }
 
-.dropdown a {
+.dropLink {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 20px;
-  font-size: var(--text-14);
+  font-size: var(--text-15);
+  line-height: 37px;
   text-transform: uppercase;
-  color: var(--color-light-03);
+  white-space: nowrap;
+  color: var(--color-dark-01);
 }
 
-.dropdown a:hover {
-  color: var(--color-light-01);
+.dropLink:hover {
+  color: var(--color-primary);
+}
+
+.current {
+  color: var(--color-secondary);
+  text-decoration: underline;
+  text-decoration-thickness: 6.5%;
+  text-underline-offset: 4px;
 }
 
 .tools {

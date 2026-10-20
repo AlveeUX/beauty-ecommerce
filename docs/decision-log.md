@@ -75,6 +75,7 @@ Purpose: record **why** development decisions were made, so that when something 
 | D-042 | 2026-10-20 | P10 | Blog: five list layouts, post page, moderated comments | APPROVED |
 | D-043 | 2026-10-20 | P10 | Newsletter sign-up persistence and welcome popup | APPROVED |
 | D-044 | 2026-10-20 | P10 | User answers on content pages: typos fixed, Home footer consent checkbox, reuse article text | APPROVED |
+| D-048 | 2026-10-20 | P2 | Home header dropdowns use the light "Menu dropdown" panel | APPROVED |
 | D-047 | 2026-10-20 | P4d | Quick view, size guide, share popup and wishlist popup (last four frames) | APPROVED |
 | D-046 | 2026-10-20 | P0 | Git repository created locally and first push to the user's GitHub repo | APPROVED |
 | D-045 | 2026-10-20 | P4c | The ten Shop listing layouts (sidebar, list, load more, top filter, horizontal, drawer) | APPROVED |
@@ -515,6 +516,12 @@ Visible differences: initials instead of reviewer photos; "Sort by" instead of t
 - **Fidelity:** measured with `tests/visual/overlay-shots.mjs`: size guide, share and wishlist boxes within 1-2 px (they are centred in the window, as in the frames); quick view geometry matches when the description is three lines as in the frame (the seed descriptions are two lines, so the column below it sits 26 px higher). The quick view is centred vertically; the frame places it 30 px lower.
 - **Tests:** `E2E-OVL-01..06` (quick view geometry, arrows, cart and buy now, size guide table, share links/copy, wishlist popup, axe on all four); `E2E-PRD-11` rewritten for the new share popup. Full run recorded below in the context file.
 - **Decided by:** User (scope); Claude (implementation, assumptions flagged above).
+
+### D-048 · 2026-10-20 · P2 · APPROVED — Home header dropdowns use the light panel of the "Menu dropdown" frame
+- **Request:** the user sent a screenshot of Figma `3:1749` ("Menu dropdown") and asked that every dropdown except the mega menu look like it; the Home header's dropdown was dark.
+- **Done:** the Home header's dropdowns (Categories, Pages, Journal) now use the same panel as the other pages: cream background, 270 wide, dashed top rule, dark uppercase items 37 px apart, hover red, the current page red and underlined, badges kept. Verified with `tests/visual/menu-shots.mjs` (panel 270 wide, rgb(248,245,240) on Home and on `/about`). The Shop mega menu is unchanged.
+- **Tests:** home, a11y and shell specs 41/41.
+- **Decided by:** User.
 
 ---
 
