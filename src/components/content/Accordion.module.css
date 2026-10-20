@@ -1,0 +1,56 @@
+/* FAQ accordion, Figma 3:27365: rules 74px apart when closed; the open item adds the answer
+   (cap-top 27px under the question row, 27px above the next rule). Questions are 20px Medium. */
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px dashed var(--color-border-light);
+}
+
+.item {
+  border-top: 1px dashed var(--color-border-light);
+}
+
+.item h3 {
+  margin: 0;
+}
+
+.item button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  padding: 26.5px 0;
+  text-align: left;
+  color: var(--color-dark-01);
+}
+
+.item button span {
+  font-size: var(--text-20);
+  font-weight: var(--weight-medium);
+  line-height: 34px;
+  letter-spacing: -0.2px;
+  text-box: trim-both cap alphabetic;
+}
+
+.item button svg {
+  flex: none;
+}
+
+.item button:hover span {
+  color: var(--color-primary);
+}
+
+.item > div {
+  padding: 0.5px 0 26.5px;
+}
+
+.item p {
+  max-width: 870px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-02);
+  text-box: trim-both cap alphabetic;
+}

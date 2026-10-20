@@ -1,0 +1,34 @@
+/* 97 x 36 (drawer) / 97 x 40 (cart page), BG-Light-01, dashed Border Light */
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 97px;
+  height: 40px;
+  padding: 0 10px;
+  background: var(--color-bg-light-01);
+  border: 0.908px dashed var(--color-border-light);
+}
+
+.sm {
+  height: 36px;
+}
+
+.stepper button {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+}
+
+.stepper button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.stepper output {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 24px;
+  text-transform: uppercase;
+  color: var(--color-dark-01);
+}

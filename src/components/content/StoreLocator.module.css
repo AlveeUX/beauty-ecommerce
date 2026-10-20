@@ -1,0 +1,165 @@
+/* Store location, Figma 3:24455 (1920 wide): hero ends y=590; map 645 x 715 at x=300 y=690; cards 645 x 224 at
+   x=975 from y=693, 20px apart; benefit strip 100px under the last card. Text is placed by cap height. */
+.page {
+  display: grid;
+  grid-template-columns: 645px 645px;
+  justify-content: space-between;
+  align-items: start;
+  padding-block: 100px;
+}
+
+.map {
+  position: relative;
+  height: 715px;
+  overflow: hidden;
+  background: var(--color-bg-light-01);
+  border: 1px dashed var(--color-border-light);
+}
+
+.mapImage {
+  object-fit: cover;
+  mix-blend-mode: luminosity;
+}
+
+/* centre at (623, 1048) on the page = (323, 358) inside the map; the image is the 181 px glow around the 80 px photo */
+.pin {
+  position: absolute;
+  left: 232.5px;
+  top: 267.4px;
+  pointer-events: none;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 3px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  position: relative;
+  height: 224px;
+  padding: 25px 30px 0;
+  background: var(--color-bg-light-01);
+}
+
+.card h2 {
+  font-size: var(--text-20);
+  font-weight: var(--weight-medium);
+  line-height: 30px;
+  letter-spacing: -0.3px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.card address {
+  margin-top: 20px;
+  font-size: var(--text-16);
+  font-style: normal;
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-02);
+  text-box: trim-both cap alphabetic;
+}
+
+.phone {
+  display: block;
+  width: fit-content;
+  margin-top: 20px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-03);
+  text-decoration: underline;
+  text-decoration-thickness: 5.5%;
+  text-underline-offset: 3px;
+  text-box: trim-both cap alphabetic;
+}
+
+.phone:hover {
+  color: var(--color-primary);
+}
+
+.distance {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  text-box: trim-both cap alphabetic;
+}
+
+.status {
+  margin-top: 20px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-03);
+  text-box: trim-both cap alphabetic;
+}
+
+.dot {
+  display: inline-block;
+  vertical-align: 0.28em;
+  width: 5px;
+  height: 5px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.state {
+  color: var(--color-primary);
+}
+
+.status[data-open] .dot {
+  background: var(--color-accent-2);
+}
+
+.status[data-open] .state {
+  color: var(--color-accent-2);
+}
+
+.directions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 170px;
+  height: 44px;
+  margin-top: 21px;
+  padding: 0 17px 0 20px;
+  white-space: nowrap;
+  background: var(--color-primary);
+  color: var(--color-light-01);
+  transition: background-color var(--duration-fast) var(--ease);
+}
+
+.directions:hover {
+  background: var(--color-secondary);
+}
+
+.directions span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  text-box: trim-both cap alphabetic;
+}
+
+@media (max-width: 1100px) {
+  .page {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .map {
+    height: 420px;
+  }
+}

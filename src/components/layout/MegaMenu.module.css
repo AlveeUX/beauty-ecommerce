@@ -1,0 +1,110 @@
+/* Positioned against the header (position: relative), so it spans the full width. */
+.mega {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background: var(--color-bg-body);
+  border-top: 1px dashed var(--color-border-light);
+  /* dims the page behind the panel (not the header): the shadow is clipped at the top edge */
+  box-shadow: 0 0 0 100vmax rgba(33, 26, 24, 0.55);
+  clip-path: inset(0 -100vmax -100vmax -100vmax);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition:
+    opacity var(--duration-fast) var(--ease),
+    transform var(--duration-fast) var(--ease),
+    visibility var(--duration-fast);
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 42px;
+  padding: 29px var(--header-gutter) 36px;
+  color: var(--color-dark-01);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 372px));
+  flex: 1;
+  margin-top: -9px; /* column titles sit 9px above the promo images in the design */
+}
+
+.column h2 {
+  margin-bottom: 9px;
+  font-size: var(--text-16);
+  font-weight: var(--weight-medium);
+  line-height: 27px;
+  text-transform: uppercase;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-16);
+  line-height: 37px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: var(--color-primary);
+}
+
+.current {
+  color: var(--color-secondary);
+  text-decoration: underline;
+  text-decoration-thickness: 6.5%;
+  text-underline-offset: 4px;
+}
+
+.promos {
+  display: flex;
+  gap: 42px;
+  flex: none;
+}
+
+.promo {
+  display: block;
+  width: 330px;
+}
+
+.photo {
+  position: relative;
+  display: block;
+  height: 385px;
+  overflow: hidden;
+  background: var(--color-bg-light-01);
+}
+
+.photo img {
+  object-fit: cover;
+  transition: transform 500ms var(--ease);
+}
+
+.promo:hover .photo img {
+  transform: scale(1.03);
+}
+
+.promoLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 6.5%;
+  text-underline-offset: 4px;
+}
+
+.promo:hover .promoLabel {
+  color: var(--color-primary);
+}

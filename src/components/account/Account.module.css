@@ -1,0 +1,210 @@
+/* Account area (proposed design, USR-004): sub-navigation left, content right, same dashed-card language. */
+.page {
+  padding-block: 100px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 30px;
+  align-items: start;
+}
+
+.nav {
+  padding: 30px;
+  border: 1px dashed var(--color-border-light);
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav a,
+.nav button {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  text-transform: uppercase;
+  color: var(--color-dark-01);
+}
+
+.nav a:hover,
+.nav button:hover {
+  color: var(--color-primary);
+}
+
+.nav a[aria-current="page"] {
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-width: 0;
+}
+
+.card {
+  padding: 40px;
+  border: 1px dashed var(--color-border-light);
+}
+
+.card h2 {
+  margin-bottom: 24px;
+  font-size: var(--text-20);
+  font-weight: var(--weight-medium);
+  line-height: 28px;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 12px 40px;
+  margin: 0;
+}
+
+.profile dt {
+  font-size: var(--text-14);
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  color: var(--color-dark-03);
+}
+
+.profile dd {
+  margin: 0;
+  font-size: var(--text-16);
+  font-weight: var(--weight-medium);
+}
+
+.narrow {
+  max-width: 520px;
+}
+
+/* addresses */
+.addressGrid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 26px;
+  background: var(--color-bg-light-01);
+}
+
+.address address {
+  font-size: var(--text-15);
+  font-style: normal;
+  line-height: 25px;
+}
+
+.badge {
+  align-self: flex-start;
+  padding: 2px 10px;
+  background: var(--color-bg-dark);
+  font-size: var(--text-12);
+  letter-spacing: 0.12px;
+  text-transform: uppercase;
+  color: var(--color-light-01);
+}
+
+.rowActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  text-transform: uppercase;
+}
+
+.rowActions button {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.rowActions button:hover {
+  color: var(--color-primary);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 20px;
+  margin-top: 30px;
+}
+
+.formGrid .wide {
+  grid-column: 1 / -1;
+}
+
+.formActions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 16px;
+}
+
+.small {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+}
+
+.small:hover {
+  background: var(--color-primary);
+}
+
+.ghost {
+  composes: small;
+  background: transparent;
+  border: 1px solid var(--color-dark-01);
+  color: var(--color-dark-01);
+}
+
+.ghost:hover {
+  background: var(--color-dark-01);
+  color: var(--color-light-01);
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statusNote {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: var(--color-bg-light-01);
+  font-size: var(--text-15);
+}
+
+.addRow {
+  margin-top: 30px;
+}

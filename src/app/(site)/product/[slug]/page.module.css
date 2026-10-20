@@ -1,0 +1,82 @@
+.crumbs {
+  padding-top: 14px;
+}
+
+.crumbs ol {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  color: var(--color-dark-01);
+}
+
+.crumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.crumbs a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.crumbs a:hover {
+  color: var(--color-primary);
+}
+
+.crumbs [aria-current="page"] {
+  color: var(--color-dark-01);
+  font-weight: var(--weight-medium);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 645px minmax(0, 575px);
+  justify-content: space-between;
+  gap: 40px;
+  align-items: start;
+  padding-block: 8px 80px;
+}
+
+/* "Gallery 1 column": the tall image stack scrolls past a purchase panel that stays in view */
+.sticky {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+}
+
+.band {
+  padding-top: 80px;
+  background: var(--color-bg-light-01);
+}
+
+.carousel {
+  padding-block: 80px 0;
+}
+
+.band > :last-child {
+  padding-bottom: 80px;
+}
+
+.related {
+  padding-block: 80px;
+}
+
+@media (max-width: 1100px) {
+  .top {
+    grid-template-columns: 1fr;
+    padding-bottom: 48px;
+  }
+
+  .band {
+    padding-top: 48px;
+  }
+
+  .carousel {
+    padding-top: 48px;
+  }
+}

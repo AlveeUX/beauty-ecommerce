@@ -1,0 +1,270 @@
+/* Policy and privacy, Figma 3:24059 (1920 wide): hero ends y=590; content starts y=690. Contents list 405 wide
+   at x=300, text column 855 wide at x=765; h2 32/50 with a dashed rule 48px under its cap top;
+   benefit strip starts 100px under the contact box. Text is placed by cap height. */
+.page {
+  display: grid;
+  grid-template-columns: 405px minmax(0, 855px);
+  justify-content: space-between;
+  align-items: start;
+  padding-block: 100px;
+}
+
+.side {
+  position: sticky;
+  top: 24px;
+}
+
+.toc {
+  padding: 35px 30px 36px;
+  background: var(--color-bg-light-01);
+}
+
+.tocTitle {
+  font-size: var(--text-14);
+  font-weight: var(--weight-semibold);
+  line-height: 24px;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  text-box: trim-both cap alphabetic;
+}
+
+.toc ol {
+  margin: 35px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc li + li {
+  margin-top: 27.8px;
+}
+
+.toc a {
+  display: block;
+  width: fit-content;
+  font-size: var(--text-16);
+  font-weight: var(--weight-medium);
+  line-height: 30px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.toc a span {
+  display: inline-block;
+  margin-right: 7px;
+}
+
+.toc a:hover {
+  color: var(--color-primary);
+}
+
+.toc a[aria-current="location"] {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+
+.article {
+  color: var(--color-dark-02);
+}
+
+.updated,
+.intro {
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  text-box: trim-both cap alphabetic;
+}
+
+.updated strong {
+  font-weight: var(--weight-medium);
+  color: var(--color-dark-01);
+}
+
+.intro {
+  margin-top: 30px;
+}
+
+.section {
+  margin-top: 50px;
+  scroll-margin-top: 24px;
+}
+
+.section h2 {
+  padding-bottom: 25.6px;
+  font-size: 2rem;
+  font-weight: var(--weight-medium);
+  line-height: 50px;
+  letter-spacing: -0.48px;
+  color: var(--color-dark-01);
+  border-bottom: 1px dashed var(--color-border-light);
+  text-box: trim-both cap alphabetic;
+}
+
+.body {
+  padding: 24px 0 0 4px;
+}
+
+/* every text line box is trimmed to cap height, so the gaps below are the design's cap-to-baseline gaps */
+.body > p,
+.body li {
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  text-box: trim-both cap alphabetic;
+}
+
+.body > * + * {
+  margin-top: 31px;
+}
+
+.body h3 {
+  font-size: var(--text-20);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: -0.3px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.body > ul + h3,
+.body > ol + h3 {
+  margin-top: 27px;
+}
+
+.body h3 + ul,
+.body h3 + ol {
+  margin-top: 25px;
+}
+
+.body ul,
+.body ol {
+  padding-left: 24px;
+}
+
+.body li + li {
+  margin-top: 18.8px;
+}
+
+.body ul {
+  list-style: disc;
+}
+
+.body ol {
+  list-style: decimal;
+}
+
+.body li::marker {
+  color: var(--color-dark-02);
+  font-size: 0.8em;
+}
+
+.body ol li::marker {
+  font-size: 1em;
+}
+
+.muted {
+  max-width: 769px;
+  color: var(--color-dark-03);
+}
+
+.note {
+  margin-left: -4px;
+  padding: 30px 30px 30px 27px;
+  background: var(--color-bg-light-01);
+  border-left: 3px solid var(--color-secondary);
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  text-box: trim-both cap alphabetic;
+}
+
+.note strong {
+  font-weight: var(--weight-semibold);
+  color: var(--color-dark-01);
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 35px;
+  width: 100%;
+  margin-left: -4px;
+}
+
+.table thead,
+.table tbody,
+.table tr {
+  display: contents;
+}
+
+.table th,
+.table td {
+  box-sizing: border-box;
+  height: 44px;
+  padding: 16px 0 15.8px;
+  text-align: left;
+  border-bottom: 1px dashed var(--color-border-light);
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  text-box: trim-both cap alphabetic;
+}
+
+.table th {
+  height: 27px;
+  padding: 0 0 15.5px;
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--color-dark-01);
+}
+
+.table td:nth-child(even),
+.table th:nth-child(even) {
+  grid-column: 2;
+}
+
+.contact {
+  scroll-margin-top: 24px;
+  margin-top: 26px;
+  padding: 30px 30px 30.8px;
+  background: var(--color-bg-light-01);
+  text-align: center;
+}
+
+.contact p {
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  text-box: trim-both cap alphabetic;
+}
+
+.contact p:first-child {
+  font-weight: var(--weight-medium);
+  color: var(--color-dark-01);
+}
+
+.contact p + p {
+  margin-top: 22.8px;
+}
+
+.contact a {
+  color: var(--color-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+  .page {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .side {
+    position: static;
+  }
+}

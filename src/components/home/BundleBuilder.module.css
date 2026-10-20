@@ -1,0 +1,263 @@
+/* Explore bundle (Figma 3:3364): tabs cap-top +128 from the header, rule +158, cards +189, total +389 */
+.bundle {
+  margin-top: 50px;
+}
+
+.tabs {
+  display: flex;
+  gap: 30px;
+  height: 31px;
+  padding-left: 1px;
+  background: url("/images/home/bundle/tabs-line.svg") left bottom / 1319px 1px no-repeat;
+}
+
+.tabs button {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  height: 31px;
+  text-align: left;
+  color: var(--color-dark-03);
+}
+
+.tabs button span {
+  display: block;
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  text-transform: uppercase;
+  text-box: trim-both cap alphabetic;
+}
+
+.tabs button[aria-selected="true"] {
+  color: var(--color-dark-01);
+}
+
+/* the active tab carries a 2px rule over the dashed one */
+.tabs button[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-dark-01);
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(3, 420px);
+  gap: 30px;
+  margin-top: 30px;
+  padding-left: 1px;
+}
+
+.items li {
+  position: relative;
+}
+
+.item {
+  position: relative;
+  display: block;
+  height: 170px;
+  background: var(--color-bg-body);
+}
+
+.thumb {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+}
+
+.thumb img {
+  object-fit: cover;
+}
+
+.index,
+.name,
+.label,
+.price {
+  position: absolute;
+  left: 165px;
+  white-space: nowrap;
+  text-box: trim-both cap alphabetic;
+}
+
+.index {
+  top: 25px;
+  margin-left: 1px;
+  font-size: var(--text-14);
+  font-weight: var(--weight-semibold);
+  line-height: 24px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.name {
+  top: 54px;
+  font-size: var(--text-18);
+  font-weight: var(--weight-medium);
+  line-height: 28px;
+  letter-spacing: -0.18px;
+  color: var(--color-dark-01);
+}
+
+.label {
+  top: 85px;
+  font-size: var(--text-14);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  color: var(--color-dark-03);
+}
+
+.unit {
+  text-transform: lowercase;
+}
+
+.price {
+  top: 127px;
+  font-size: var(--text-18);
+  font-weight: var(--weight-semibold);
+  line-height: 28px;
+  letter-spacing: -0.18px;
+  text-transform: uppercase;
+  color: var(--color-dark-01);
+}
+
+/* 52px circle centred in the 30px gap, 58px from the card top */
+.plus {
+  position: absolute;
+  top: 58px;
+  right: -41px;
+  width: 52px;
+  height: 52px;
+  background: url("/images/home/bundle/plus.svg") center / 52px 52px no-repeat;
+  pointer-events: none;
+}
+
+.total {
+  position: relative;
+  height: 170px;
+  margin: 30px 0 0 1px;
+  background: var(--color-bg-body);
+}
+
+.sum {
+  position: absolute;
+  top: 46px;
+  left: 50px;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.sum strong,
+.sum s,
+.sum em span,
+.note,
+.add span {
+  text-box: trim-both cap alphabetic;
+}
+
+.sum strong {
+  font-size: 3rem;
+  font-weight: var(--weight-medium);
+  line-height: 58px;
+  letter-spacing: -0.48px;
+  color: var(--color-dark-01);
+}
+
+.sum s {
+  margin-top: 6px;
+  font-size: 2rem;
+  line-height: 58px;
+  letter-spacing: -0.32px;
+  color: var(--color-dark-03);
+}
+
+.sum em {
+  margin-top: 5px;
+  padding: 8px 10px;
+  background: var(--color-primary);
+  font-style: normal;
+}
+
+.sum em span {
+  display: block;
+  font-size: var(--text-14);
+  font-weight: var(--weight-semibold);
+  line-height: 24px;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  color: var(--color-light-01);
+}
+
+.note {
+  position: absolute;
+  top: 112px;
+  left: 50px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-02);
+}
+
+.add {
+  position: absolute;
+  top: 56px;
+  right: 49px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 280px;
+  padding: 21px 26px;
+  background: var(--color-primary);
+  color: var(--color-light-01);
+  transition: background-color var(--duration-fast) var(--ease);
+}
+
+.add:hover {
+  background: var(--color-secondary);
+}
+
+.add span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+  .tabs {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .items {
+    grid-template-columns: 1fr;
+  }
+
+  .plus {
+    display: none;
+  }
+
+  .total {
+    height: auto;
+    padding: 24px;
+  }
+
+  .sum,
+  .note,
+  .add {
+    position: static;
+    margin-top: 16px;
+  }
+}

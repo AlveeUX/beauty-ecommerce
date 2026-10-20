@@ -1,0 +1,493 @@
+/* About us, Figma 3:28603 (1920 wide). No page banner: the dark hero (810 tall) starts under the header at y=111;
+   reasons y=1021; founder band x=30..1890 y=1855 (774 tall); split sections y=2729 and y=3349 (570 tall each);
+   "Pure Origins" band y=4019 (635 tall); the footer follows directly. Text is placed by cap height. */
+.label {
+  font-size: var(--text-14);
+  font-weight: var(--weight-semibold);
+  line-height: 24px;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  text-box: trim-both cap alphabetic;
+}
+
+.center {
+  text-align: center;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: var(--weight-regular);
+  line-height: 58px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.light {
+  color: var(--color-light-01);
+}
+
+.body {
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-02);
+  text-box: trim-both cap alphabetic;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px 21px 16px 24px;
+  background: var(--color-primary);
+  color: var(--color-light-01);
+  transition: background-color var(--duration-fast) var(--ease);
+}
+
+.cta:hover {
+  background: var(--color-secondary);
+}
+
+.cta span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  text-box: trim-both cap alphabetic;
+}
+
+/* ---- hero ---- */
+.hero {
+  position: relative;
+  height: 810px;
+  margin-top: 1px; /* the page starts on the header rule's row: y=111 in the frame */
+  background: var(--color-bg-dark);
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0 0 0 calc(50% + 15px);
+}
+
+.heroImage img {
+  object-fit: cover;
+}
+
+.heroText {
+  position: relative;
+  padding-top: 100px;
+}
+
+.hero h1 {
+  width: 533px;
+  max-width: 100%;
+  margin-top: 30px;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: var(--weight-regular);
+  line-height: 58px;
+  color: var(--color-light-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.lead {
+  width: 521px;
+  max-width: 100%;
+  margin-top: 30px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  white-space: pre-wrap;
+  color: var(--color-light-02);
+  text-box: trim-both cap alphabetic;
+}
+
+.hero .cta {
+  margin-top: 30px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 581px;
+  max-width: 100%;
+  margin: 105px 0 0;
+  border-block: 1px solid var(--color-border-dark);
+}
+
+.stats > div {
+  padding: 30px 0 28.3px 20px;
+}
+
+.stats > div:first-child {
+  padding-left: 0;
+}
+
+.stats > div + div {
+  border-left: 1px solid var(--color-border-dark);
+}
+
+.stats dd {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: -0.48px;
+  text-transform: uppercase;
+  color: var(--color-light-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.stats dt {
+  margin-top: 31.4px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-light-02);
+  text-box: trim-both cap alphabetic;
+}
+
+/* ---- reasons ---- */
+.reasons {
+  padding-top: 100px;
+}
+
+.reasons .display {
+  width: 533px;
+  max-width: 100%;
+  margin: 30px auto 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 420px);
+  justify-content: space-between;
+  margin: 50px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cardImage {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  overflow: hidden;
+}
+
+.cardImage img {
+  object-fit: cover;
+}
+
+.cardImage span {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: var(--weight-medium);
+  line-height: 50px;
+  letter-spacing: -0.4px;
+  color: var(--color-light-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.cards h3 {
+  margin-top: 25px;
+  font-size: var(--text-20);
+  font-weight: var(--weight-medium);
+  line-height: 30px;
+  letter-spacing: -0.2px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.cards p {
+  margin-top: 25px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-02);
+  text-box: trim-both cap alphabetic;
+}
+
+/* ---- founder quote ---- */
+.quoteBand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 774px;
+  margin: 100px 30px 0;
+  padding-top: 100px;
+  background: var(--color-bg-dark);
+  text-align: center;
+}
+
+.quoteBand blockquote {
+  width: 780px;
+  max-width: calc(100% - 40px);
+  margin: 50px 0 0;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  line-height: 56px;
+  color: var(--color-light-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.quoteBand figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 68px 0 0;
+}
+
+.portrait {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.portrait img {
+  object-fit: cover;
+}
+
+.quoteBand figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quoteBand strong {
+  margin-top: 30px;
+  font-size: var(--text-24);
+  font-weight: var(--weight-medium);
+  line-height: 30px;
+  letter-spacing: -0.24px;
+  color: var(--color-light-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.quoteBand figcaption span {
+  margin-top: 18px;
+  font-size: var(--text-14);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  color: var(--color-light-02);
+  text-box: trim-both cap alphabetic;
+}
+
+/* ---- two split sections ---- */
+.split {
+  display: grid;
+  grid-template-columns: 645px 645px;
+  justify-content: space-between;
+  align-items: start;
+  height: 570px;
+  margin-top: 100px;
+}
+
+.splitSecond {
+  margin-top: 50px;
+}
+
+.splitImage {
+  position: relative;
+  height: 570px;
+  overflow: hidden;
+}
+
+.splitImage img {
+  object-fit: cover;
+}
+
+.imageEnd img {
+  object-position: 78% 50%;
+}
+
+.textEnd {
+  padding: 71px 0 0 56px;
+}
+
+.textStart {
+  padding: 71px 0 0;
+}
+
+.splitText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.splitText .display {
+  width: 533px;
+  max-width: 100%;
+  margin-top: 30px;
+}
+
+.splitText .narrow {
+  width: 380px;
+}
+
+.splitText .body {
+  width: 450px;
+  max-width: 100%;
+  margin-top: 31px;
+}
+
+.checks {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 39px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checks li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-secondary);
+}
+
+.checks li span {
+  font-size: var(--text-16);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  color: var(--color-dark-01);
+}
+
+.splitText .cta {
+  margin-top: 30px;
+}
+
+/* ---- Pure Origins ---- */
+.origins {
+  margin-top: 100px;
+  background: var(--color-bg-dark);
+}
+
+.originsInner {
+  width: 1250px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 100px 0 120px;
+}
+
+.origins .display {
+  width: 459px;
+  max-width: 100%;
+  margin: 30px auto 0;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 350px);
+  justify-content: space-between;
+  margin: 69px 0 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.steps li {
+  position: relative;
+}
+
+.steps li + li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -50px;
+  border-left: 1px solid var(--color-border-dark);
+}
+
+.outline {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 6rem;
+  line-height: 66px;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-secondary);
+  text-box: trim-both cap alphabetic;
+}
+
+.steps h3 {
+  margin-top: 50px;
+  font-size: var(--text-20);
+  font-weight: var(--weight-medium);
+  line-height: 30px;
+  letter-spacing: -0.2px;
+  color: var(--color-light-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.steps p {
+  width: 350px;
+  max-width: 100%;
+  margin: 30px auto 0;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-light-02);
+  text-box: trim-both cap alphabetic;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    height: auto;
+    padding-bottom: 60px;
+  }
+
+  .heroImage {
+    position: relative;
+    inset: auto;
+    height: 420px;
+  }
+
+  .heroText {
+    padding-top: 40px;
+  }
+
+  .stats {
+    margin-top: 48px;
+  }
+
+  .cards,
+  .split,
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .split {
+    height: auto;
+  }
+
+  .splitImage {
+    height: 380px;
+  }
+
+  .textEnd {
+    padding-left: 0;
+  }
+
+  .cardImage {
+    width: 100%;
+  }
+
+  .quoteBand {
+    height: auto;
+    padding-bottom: 60px;
+  }
+
+  .steps li + li::before {
+    display: none;
+  }
+}

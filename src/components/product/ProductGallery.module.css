@@ -1,0 +1,301 @@
+.gallery {
+  position: relative;
+  width: 100%;
+  max-width: 645px;
+}
+
+.stage {
+  position: relative;
+}
+
+.main {
+  position: relative;
+  aspect-ratio: 645 / 752;
+  background: var(--color-bg-light-01);
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.expand,
+.arrow {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-bg-light-01);
+  color: var(--color-dark-01);
+  transition:
+    background-color var(--duration-fast) var(--ease),
+    color var(--duration-fast) var(--ease);
+}
+
+.expand:hover,
+.arrow:hover {
+  background: var(--color-primary);
+  color: var(--color-light-01);
+}
+
+.expand {
+  top: 15px;
+  right: 35px;
+}
+
+.arrow {
+  top: calc(50% - 20px);
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 35px;
+}
+
+.thumbs {
+  display: flex;
+  gap: 14px;
+  margin: 15px 0 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+}
+
+.thumb {
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 92px;
+  border: 1px solid transparent;
+  background: var(--color-bg-light-01);
+  overflow: hidden;
+}
+
+.thumb[aria-current="true"] {
+  border-color: var(--color-dark-01);
+}
+
+.thumbImage {
+  object-fit: cover;
+}
+
+.lightbox {
+  width: min(92vw, 1100px);
+  height: min(90vh, 900px);
+  padding: 0;
+  border: 0;
+  background: var(--color-bg-dark);
+}
+
+.lightbox::backdrop {
+  background: rgba(33, 26, 24, 0.8);
+}
+
+.lightboxImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.contain {
+  object-fit: contain;
+}
+
+.close {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-light-01);
+  color: var(--color-dark-01);
+}
+
+@media (max-width: 1100px) {
+  .expand,
+  .next {
+    right: 15px;
+  }
+}
+
+/* ---- "Thumbnail right/left" (3:29779, 3:30941): 80px column beside a 550 x 642 image ---- */
+.thumbs-start .stage,
+.thumbs-end .stage {
+  display: grid;
+  gap: 15px;
+  align-items: start;
+}
+
+.thumbs-start .stage {
+  grid-template-columns: 80px minmax(0, 550px);
+}
+
+.thumbs-end .stage {
+  grid-template-columns: minmax(0, 550px) 80px;
+}
+
+.thumbs-start .main,
+.thumbs-end .main {
+  aspect-ratio: 550 / 642;
+}
+
+.thumbs-start .main {
+  order: 2;
+}
+
+.thumbs-start .thumbs {
+  order: 1;
+}
+
+.thumbs-start .thumbs,
+.thumbs-end .thumbs {
+  flex-direction: column;
+  margin: 0;
+  overflow: visible;
+}
+
+.thumbs-start .expand,
+.thumbs-end .expand,
+.thumbs-start .next,
+.thumbs-end .next {
+  right: 15px;
+}
+
+/* ---- "Gallery 1 column" (3:33384) and "Gallery 2 column" (3:32103) ---- */
+.grid {
+  display: grid;
+  gap: 17px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grid-2 .grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.cell {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 645 / 751;
+  background: var(--color-bg-light-01);
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.grid-2 .cell {
+  aspect-ratio: 314.5 / 367;
+}
+
+.grid-1 > .expand,
+.grid-2 > .expand {
+  top: 15px;
+  right: 15px;
+}
+
+/* ---- zoom (3:17692 inner, 3:18997 external) ---- */
+.main[data-testid="gallery-main"] {
+  cursor: crosshair;
+}
+
+[data-zoom="none"] .main[data-testid="gallery-main"] {
+  cursor: default;
+}
+
+.lens {
+  position: absolute;
+  z-index: 2;
+  width: 174px;
+  height: 174px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.lensView {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid rgba(253, 251, 248, 0.55);
+  background: rgba(253, 251, 248, 0.2);
+  box-shadow: 0 0 0 1px rgba(36, 28, 27, 0.08);
+}
+
+.lensGhost {
+  background: rgba(36, 28, 27, 0.25);
+}
+
+.cross::before,
+.cross::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--color-light-01);
+}
+
+.cross::before {
+  width: 24px;
+  height: 1.5px;
+  transform: translate(-50%, -50%);
+}
+
+.cross::after {
+  width: 1.5px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+}
+
+.magnified {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+.pane {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: calc(100% + 31px);
+  width: 644px;
+  overflow: hidden;
+  background: var(--color-bg-light-01);
+  pointer-events: none;
+}
+
+.lightboxNav {
+  position: absolute;
+  inset: auto 0 12px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.lightboxNav button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-light-01);
+  color: var(--color-dark-01);
+}
+
+@media (max-width: 1100px) {
+  .pane {
+    display: none;
+  }
+}

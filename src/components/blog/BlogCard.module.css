@@ -1,0 +1,250 @@
+/* Post cards. Grid card 420 x 515 (Figma 3:25805), list row 870 x 285 (3:25320), large post 870 wide (3:26239).
+   Text is placed by cap height (text-box trim), so the margins below are cap-to-cap distances from the frames. */
+.card {
+  position: relative;
+  min-width: 0;
+  border: 1px dashed var(--color-border-light);
+  padding: 14px;
+  background: var(--color-bg-body);
+}
+
+.image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--color-bg-light-01);
+}
+
+.cover {
+  object-fit: cover;
+  transition: transform var(--duration-slow, 400ms) var(--ease);
+}
+
+.card:hover .cover {
+  transform: scale(1.03);
+}
+
+.meta {
+  font-size: var(--text-14);
+  font-weight: var(--weight-regular);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  color: var(--color-dark-02);
+  white-space: pre;
+  text-box: trim-both cap alphabetic;
+}
+
+.cat {
+  font-weight: var(--weight-medium);
+  color: var(--color-secondary);
+}
+
+.cat:hover {
+  text-decoration: underline;
+}
+
+.dot {
+  padding-inline: 0.8em;
+}
+
+.by {
+  display: inline-flex;
+  align-items: center;
+  font-weight: var(--weight-medium);
+}
+
+.byImage {
+  margin-right: 7px;
+  vertical-align: middle;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-24);
+  font-weight: var(--weight-regular);
+  line-height: 34px;
+  letter-spacing: 0.24px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.title a:hover {
+  color: var(--color-secondary);
+}
+
+.excerpt {
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-02);
+  text-box: trim-both cap alphabetic;
+}
+
+.more,
+.moreBox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 18px;
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  color: var(--color-dark-01);
+}
+
+.more span,
+.moreBox span {
+  text-box: trim-both cap alphabetic;
+}
+
+.more::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 102px;
+  height: 1px;
+  background: var(--color-dark-01);
+}
+
+.more:hover,
+.moreBox:hover {
+  color: var(--color-primary);
+}
+
+.more:hover::after {
+  background: var(--color-primary);
+}
+
+/* ---- grid card ---- */
+.grid {
+  height: 515px;
+}
+
+.grid .image {
+  height: 246px;
+}
+
+.grid .body {
+  padding-top: 30px;
+}
+
+.grid .title {
+  margin-top: 25px;
+  min-height: 53px;
+}
+
+.grid .excerpt {
+  width: 345px;
+  max-width: 100%;
+  margin-top: 25px;
+}
+
+.grid .more {
+  margin-top: 22px;
+}
+
+/* ---- list row ---- */
+.row {
+  display: grid;
+  grid-template-columns: 405px minmax(0, 390px);
+  column-gap: 30px;
+  height: 285px;
+}
+
+.row .image {
+  height: 255px;
+}
+
+.row .body {
+  padding-top: 31px;
+}
+
+.row .title {
+  margin-top: 25px;
+}
+
+.row .excerpt {
+  width: 345px;
+  max-width: 100%;
+  margin-top: 25px;
+}
+
+.row .more {
+  margin-top: 25px;
+}
+
+/* ---- large post ---- */
+.large {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.large .image {
+  height: 549px;
+}
+
+.large .body {
+  padding-top: 25px;
+}
+
+.large .meta {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  text-box: none;
+}
+
+.large .title {
+  margin-top: 30px;
+  font-size: 2.25rem;
+  line-height: 46px;
+  letter-spacing: 0.36px;
+}
+
+.large .excerpt {
+  margin-top: 35px;
+}
+
+.moreBox {
+  height: 52px;
+  margin-top: 30px;
+  padding: 0 24px 0 24px;
+  border: 1px solid var(--color-dark-01);
+  transition:
+    background-color var(--duration-fast) var(--ease),
+    color var(--duration-fast) var(--ease);
+}
+
+.moreBox:hover {
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+@media (max-width: 1100px) {
+  .row {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .row .image {
+    aspect-ratio: 405 / 255;
+    height: auto;
+  }
+
+  .grid {
+    height: auto;
+  }
+
+  .large .image {
+    height: auto;
+    aspect-ratio: 870 / 549;
+  }
+}

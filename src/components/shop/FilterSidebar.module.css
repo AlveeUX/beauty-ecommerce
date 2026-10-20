@@ -1,0 +1,434 @@
+.sidebar {
+  width: 308px;
+  border: 1px dashed var(--color-border-light);
+}
+
+.section + .section {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 25px 0;
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  text-transform: uppercase;
+  list-style: none;
+  cursor: pointer;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.section[open] > .summary svg {
+  transform: none;
+}
+
+.section:not([open]) > .summary svg {
+  transform: rotate(180deg);
+}
+
+.body {
+  padding: 20px 25px 32px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.nested {
+  margin-top: 7px;
+  padding-left: 18px;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 24px;
+  font-size: var(--text-15);
+  line-height: 24px;
+  color: var(--color-dark-02);
+  cursor: pointer;
+}
+
+.row[data-disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.row input {
+  position: absolute;
+  opacity: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.box {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--color-border-light);
+  background: var(--color-bg-body);
+  color: transparent;
+}
+
+.row input:checked + .box {
+  background: var(--color-dark-01);
+  border-color: var(--color-dark-01);
+  color: var(--color-light-01);
+}
+
+.row input:focus-visible + .box {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.swatch {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-right: -2px;
+  border-radius: 50%;
+}
+
+.label {
+  flex: 1;
+}
+
+.count {
+  font-size: var(--text-14);
+  color: var(--color-dark-03);
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 9px;
+  min-height: 24px;
+  font-size: var(--text-15);
+  line-height: 24px;
+  color: var(--color-dark-02);
+  text-align: left;
+}
+
+.ratingRow:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.ratingRow[aria-pressed="true"] .ratingLabel {
+  color: var(--color-dark-01);
+  font-weight: var(--weight-medium);
+}
+
+.stars {
+  display: inline-flex;
+  gap: 1px;
+  color: var(--color-primary);
+}
+
+.ratingLabel {
+  flex: 1;
+}
+
+/* price range */
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.slider {
+  position: relative;
+  height: 20px;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  inset: 9px 0 auto;
+  height: 2px;
+  background: var(--color-border-light);
+}
+
+.track {
+  position: absolute;
+  top: 9px;
+  height: 2px;
+  background: var(--color-dark-01);
+}
+
+.slider input[type="range"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  margin: 0;
+  background: none;
+  pointer-events: none;
+  appearance: none;
+}
+
+.slider input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  pointer-events: auto;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--color-dark-01);
+  background: var(--color-bg-body);
+  cursor: pointer;
+}
+
+.slider input[type="range"]::-moz-range-thumb {
+  pointer-events: auto;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--color-dark-01);
+  background: var(--color-bg-body);
+  cursor: pointer;
+}
+
+.slider input[type="range"]::-webkit-slider-runnable-track {
+  background: transparent;
+}
+
+.priceLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-14);
+  line-height: 25px;
+  color: var(--color-dark-02);
+}
+
+.priceLine button {
+  font-weight: var(--weight-medium);
+  color: var(--color-dark-01);
+  text-transform: uppercase;
+}
+
+.priceLine button:hover {
+  color: var(--color-primary);
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.presets button {
+  padding: 4px 8px;
+  background: var(--color-bg-light-01);
+  color: var(--color-dark-02);
+  font-size: var(--text-13);
+  line-height: 20px;
+}
+
+.presets button[data-active] {
+  background: var(--color-dark-01);
+  color: var(--color-light-01);
+}
+
+@media (max-width: 1100px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+
+/* ---- "Shop top filter": panel of five columns under the toolbar, 1320 x 294 (Figma 3:7276) ---- */
+.panel {
+  display: grid;
+  grid-template-columns: 266px 262px 262px 262px 1fr;
+  height: 294px;
+  border: 1px dashed var(--color-border-light);
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.col {
+  min-width: 0;
+  padding: 30px 26px 0;
+}
+
+.col:first-child {
+  padding-left: 30px;
+}
+
+.col + .col {
+  border-left: 1px solid var(--color-border-light);
+}
+
+.colTitle,
+.dropButton span {
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  text-transform: uppercase;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.colBody {
+  margin-top: 30px;
+}
+
+.colBody .list,
+.popBody .list {
+  gap: 12px;
+}
+
+.colBody[data-scroll],
+.popBody[data-scroll] {
+  max-height: 196px;
+  padding-right: 10px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-dark-01) var(--color-bg-light-02);
+}
+
+/* ---- "Shop horizontal filter": bar of dropdown buttons, 1320 x 70, lists 262 x 248 (Figma 3:11117) ---- */
+.bar {
+  margin-bottom: 30px; /* the frame leaves 60 px between the bar and the filter chips */
+  display: grid;
+  grid-template-columns: 266px 262px 262px 262px 1fr;
+  height: 70px;
+  border: 1px dashed var(--color-border-light);
+}
+
+.dropdown {
+  position: relative;
+  min-width: 0;
+}
+
+.dropdown + .dropdown {
+  border-left: 1px solid var(--color-border-light);
+}
+
+.dropButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 26px;
+  color: var(--color-dark-01);
+}
+
+.dropdown:first-child .dropButton {
+  padding-left: 30px;
+}
+
+.dropButton:hover span {
+  color: var(--color-primary);
+}
+
+.dropButton[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.popover {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 1px);
+  left: -2px;
+  width: 262px;
+  padding: 25px;
+  background: var(--color-bg-body);
+  border: 1px dashed var(--color-border-light);
+  box-shadow: 0 12px 24px rgb(33 26 24 / 0.08);
+}
+
+.dropdown:first-child .popover {
+  left: -1px;
+  width: 266px;
+}
+
+.popover[hidden] {
+  display: none;
+}
+
+/* ---- "Filter drawer": 368 wide, from the left, over a dimmed page (Figma 3:12394) ---- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: rgb(36 28 27 / 0.7);
+}
+
+.drawer {
+  width: 368px;
+  max-width: 100%;
+  height: 100%;
+  padding: 0 30px 30px;
+  overflow-y: auto;
+  background: var(--color-bg-body);
+}
+
+.drawerHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 68px;
+  padding-bottom: 25px;
+}
+
+.drawerHead h2 {
+  font-size: var(--text-20);
+  font-weight: var(--weight-medium);
+  line-height: 28px;
+  letter-spacing: -0.3px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.drawerHead button {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  color: var(--color-dark-01);
+}
+
+.drawerHead button:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 1100px) {
+  .panel,
+  .bar {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .col {
+    padding-bottom: 20px;
+  }
+
+  .col + .col,
+  .dropdown + .dropdown {
+    border-left: 0;
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  .popover,
+  .dropdown:first-child .popover {
+    width: 100%;
+  }
+}

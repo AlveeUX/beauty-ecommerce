@@ -1,0 +1,215 @@
+/* Shared by the wishlist popup (Figma 3:15517) and the compare "Already added" popup (3:15903) */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-flex;
+  color: var(--color-dark-01);
+}
+
+.notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 40px 40px;
+  text-align: center;
+}
+
+.tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-bg-light-01);
+  color: var(--color-primary);
+}
+
+.notice h2 {
+  margin-top: 20px;
+  font-size: var(--text-24);
+  font-weight: var(--weight-medium);
+  line-height: 34px;
+  letter-spacing: -0.24px;
+}
+
+.notice p {
+  margin: 8px 0 28px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-02);
+}
+
+.notice p strong {
+  font-weight: var(--weight-medium);
+  color: var(--color-dark-01);
+}
+
+.primary,
+.outline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 17px 21px 17px 24px;
+  white-space: nowrap;
+}
+
+.primary span,
+.outline span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  text-box: trim-both cap alphabetic;
+}
+
+.primary {
+  background: var(--color-primary);
+  color: var(--color-light-01);
+}
+
+.primary:hover {
+  background: var(--color-secondary);
+}
+
+.outline {
+  margin-top: 12px;
+  border: 1px solid var(--color-dark-01);
+  color: var(--color-dark-01);
+}
+
+.outline:hover {
+  background: var(--color-dark-01);
+  color: var(--color-light-01);
+}
+
+/* wishlist popup */
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px 18px;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.head h2 {
+  font-size: var(--text-24);
+  font-weight: var(--weight-medium);
+  line-height: 34px;
+  letter-spacing: -0.24px;
+}
+
+.closeInline {
+  display: inline-flex;
+}
+
+.rows {
+  padding: 0 24px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 24px 68px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.rowRemove {
+  display: inline-flex;
+  color: var(--color-dark-03);
+}
+
+.rowRemove:hover {
+  color: var(--color-primary);
+}
+
+.thumb {
+  position: relative;
+  width: 68px;
+  height: 78px;
+  background: var(--color-bg-light-01);
+}
+
+.thumb img {
+  object-fit: cover;
+}
+
+.rowName {
+  font-size: var(--text-16);
+  font-weight: var(--weight-medium);
+  line-height: 24px;
+}
+
+.rowPrice {
+  display: flex;
+  gap: 6px;
+  font-size: var(--text-14);
+  line-height: 22px;
+}
+
+.rowPrice s {
+  opacity: 0.5;
+}
+
+.rowPrice span {
+  font-weight: var(--weight-medium);
+}
+
+.stock {
+  margin-top: 8px;
+  font-size: var(--text-14);
+  line-height: 22px;
+  color: var(--color-accent-2);
+}
+
+.stock[data-out] {
+  color: var(--color-secondary);
+}
+
+.rowAdd {
+  padding: 12px 18px;
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+.rowAdd:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.rowAdd span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 22px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.emptyLine {
+  padding: 32px 24px;
+  color: var(--color-dark-02);
+}
+
+.foot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 24px;
+  background: var(--color-bg-light-01);
+}
+
+.foot .outline {
+  margin-top: 0;
+}

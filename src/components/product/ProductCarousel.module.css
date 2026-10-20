@@ -1,0 +1,16 @@
+.heading {
+  font-size: 2.5rem;
+  font-weight: var(--weight-regular);
+  line-height: 50px;
+  letter-spacing: -0.4px;
+}
+
+.frame {
+  margin-top: 50px;
+}
+
+@media (max-width: 560px) {
+  .heading {
+    font-size: 2rem;
+  }
+}

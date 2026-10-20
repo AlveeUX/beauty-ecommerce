@@ -1,0 +1,176 @@
+.wrap {
+  padding-block: 50px 100px;
+}
+
+/* 1320 x 274 on Secondary, the photo blended in as luminosity (Figma 3:2993 / 3:2994) */
+.banner {
+  position: relative;
+  height: 274px;
+  overflow: hidden;
+  background: var(--color-secondary);
+  color: var(--color-light-01);
+}
+
+.banner img {
+  object-fit: cover;
+  object-position: bottom;
+  mix-blend-mode: luminosity;
+}
+
+/* text is placed by cap height: eyebrow +64, title +104, copy +172 */
+.eyebrow,
+.text h2,
+.copy,
+.timer strong,
+.timer span,
+.cta span {
+  text-box: trim-both cap alphabetic;
+}
+
+.text {
+  position: absolute;
+  top: 0;
+  left: 50px;
+}
+
+.eyebrow {
+  position: absolute;
+  top: 64px;
+  font-size: var(--text-14);
+  font-weight: var(--weight-semibold);
+  line-height: 24px;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-secondary);
+}
+
+.text h2 {
+  position: absolute;
+  top: 104px;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: var(--weight-regular);
+  line-height: 58px;
+}
+
+.copy {
+  position: absolute;
+  top: 172px;
+  left: 4px;
+  width: 520px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-light-02);
+}
+
+.copy u {
+  font-weight: var(--weight-medium);
+  color: var(--color-light-01);
+  text-decoration-thickness: 6.5%;
+}
+
+.side {
+  position: absolute;
+  top: 47px;
+  right: 50px;
+  width: 437px;
+}
+
+.timer {
+  display: flex;
+  gap: 15px;
+}
+
+.timer li {
+  position: relative;
+  width: 98px;
+  height: 98px;
+  background: rgba(253, 251, 248, 0.08);
+  border: 1px solid rgba(253, 251, 248, 0.08);
+  backdrop-filter: blur(15px);
+  text-align: center;
+}
+
+.timer strong,
+.timer span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  white-space: nowrap;
+}
+
+.timer strong {
+  top: 19px; /* digits cap-top 20px below the box top */
+  font-size: 2.5rem;
+  font-weight: var(--weight-medium);
+  line-height: 66px;
+  letter-spacing: -0.4px;
+}
+
+.timer span {
+  top: 68px;
+  font-size: var(--text-14);
+  line-height: 24px;
+  letter-spacing: 0.56px;
+  text-transform: uppercase;
+}
+
+.cta {
+  position: absolute;
+  top: 128px; /* 5667 - 5539 */
+  left: -1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 17px 21px 17px 24px;
+  background: var(--color-primary);
+  color: var(--color-light-01);
+  white-space: nowrap;
+}
+
+.cta span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+}
+
+.cta:hover {
+  background: var(--color-bg-dark);
+}
+
+@media (max-width: 1100px) {
+  .banner {
+    height: auto;
+    padding: 36px 24px;
+  }
+
+  .text,
+  .side,
+  .eyebrow,
+  .text h2,
+  .copy,
+  .cta {
+    position: static;
+    width: auto;
+  }
+
+  .text h2 {
+    margin-block: 16px;
+    font-size: 2.25rem;
+    line-height: 1.15;
+  }
+
+  .timer {
+    margin-block: 24px;
+  }
+
+  .cta {
+    display: inline-flex;
+  }
+}

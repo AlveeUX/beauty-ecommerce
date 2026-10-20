@@ -1,0 +1,30 @@
+.toggle {
+  display: flex;
+  flex: none;
+  align-items: center;
+  width: 81px;
+  height: 44px;
+  padding: 0 7px;
+  border: 1px dashed var(--color-border-light);
+}
+
+.toggle a {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: var(--color-dark-01);
+}
+
+.toggle a + a {
+  margin-left: 7px;
+}
+
+.toggle a[aria-current="true"] {
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+.toggle a:not([aria-current="true"]):hover {
+  color: var(--color-primary);
+}

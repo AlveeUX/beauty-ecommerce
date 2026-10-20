@@ -1,0 +1,137 @@
+/* Shared by the confirmation, tracking and account order pages (proposed design, no Figma frames). */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-block: 100px;
+}
+
+.banner {
+  padding: 40px;
+  background: var(--color-bg-light-01);
+  border: 1px dashed var(--color-border-light);
+}
+
+.banner h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-24);
+  font-weight: var(--weight-regular);
+  line-height: 34px;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 60px;
+  margin: 26px 0 0;
+}
+
+.facts dt {
+  font-size: var(--text-14);
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  color: var(--color-dark-03);
+}
+
+.facts dd {
+  margin: 6px 0 0;
+  font-size: var(--text-18);
+  font-weight: var(--weight-medium);
+}
+
+.next {
+  margin-top: 26px;
+  max-width: 760px;
+  font-size: var(--text-15);
+  line-height: 25px;
+  color: var(--color-body-dark);
+}
+
+.timeline h2,
+.section h2 {
+  margin-bottom: 24px;
+  font-size: var(--text-20);
+  font-weight: var(--weight-medium);
+  line-height: 28px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dark,
+.outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 17px 32px;
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.dark {
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+.dark:hover {
+  background: var(--color-primary);
+}
+
+.outline {
+  border: 1px solid var(--color-dark-01);
+  color: var(--color-dark-01);
+}
+
+.outline:hover {
+  background: var(--color-dark-01);
+  color: var(--color-light-01);
+}
+
+/* order list in the account */
+.list {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px dashed var(--color-border-light);
+}
+
+.list th {
+  padding: 18px 20px;
+  text-align: left;
+  font-size: var(--text-14);
+  font-weight: var(--weight-regular);
+  text-transform: uppercase;
+  border-bottom: 1px dashed var(--color-border-light);
+}
+
+.list td {
+  padding: 16px 20px;
+  font-size: var(--text-15);
+  border-bottom: 1px dashed var(--color-border-light);
+}
+
+.list tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.list a {
+  font-weight: var(--weight-medium);
+  text-decoration: underline;
+}
+
+.empty {
+  padding: 50px 30px;
+  border: 1px dashed var(--color-border-light);
+  text-align: center;
+}
+
+.empty p {
+  margin-bottom: 20px;
+  color: var(--color-dark-02);
+}

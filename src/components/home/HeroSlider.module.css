@@ -1,0 +1,277 @@
+.hero {
+  position: relative;
+  height: 881px; /* 38px announcement bar + 843px image (Figma 3:2328) */
+  overflow: hidden;
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+/* the image starts under the announcement bar */
+.bg {
+  inset: 38px 0 0 0 !important;
+  height: 843px !important;
+  object-fit: cover;
+}
+
+/* Figma 3:2330 (top fade from Dark-01) and 3:2331 (bottom fade, transparent from 52%) */
+.shade {
+  position: absolute;
+  inset: 38px 0 0 0;
+  background:
+    linear-gradient(180deg, var(--color-dark-01) 0%, rgba(33, 26, 24, 0) 38.671%),
+    linear-gradient(180deg, rgba(33, 26, 24, 0) 52.2%, var(--color-dark-01) 100%);
+}
+
+.inner {
+  position: relative;
+  height: 100%;
+}
+
+/* Figma places text by its cap height, so trim the line box the same way. */
+.eyebrow,
+.title,
+.card h2,
+.card p,
+.cta span,
+.index button,
+.badge span,
+.badge strong {
+  text-box: trim-both cap alphabetic;
+}
+
+.copy {
+  position: absolute;
+  top: 210px;
+  left: var(--gutter); /* the container's padding box starts 24px left of the column */
+  width: 446px;
+}
+
+.eyebrow {
+  font-size: var(--text-14);
+  font-weight: var(--weight-semibold);
+  line-height: 24px;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-secondary);
+}
+
+.title {
+  margin-top: 30px; /* eyebrow cap-top 210 -> title cap-top 250 */
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: var(--weight-regular);
+  line-height: 88px;
+  letter-spacing: 1.6px;
+}
+
+.badge {
+  position: absolute;
+  top: 411px;
+  left: calc(50% + 50px);
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.badge img {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.badge span,
+.badge strong {
+  position: absolute;
+  left: 0;
+  right: 0;
+  white-space: nowrap;
+}
+
+.badgeTop,
+.badgeBottom {
+  font-size: 13.058px;
+  font-weight: var(--weight-semibold);
+  line-height: 22.385px;
+  letter-spacing: 1.567px;
+}
+
+.badgeTop {
+  top: 29px;
+}
+
+.badgeBottom {
+  top: 92.49px;
+}
+
+.badge strong {
+  top: 49.59px;
+  font-family: var(--font-display);
+  font-size: 40.626px;
+  font-weight: var(--weight-regular);
+  line-height: 47.88px;
+}
+
+.card {
+  position: absolute;
+  top: 516px;
+  right: var(--gutter);
+  width: 432px;
+  height: 265px;
+  padding: 34px 29px 0;
+  background: rgba(253, 251, 248, 0.08);
+  border: 1px solid rgba(253, 251, 248, 0.08);
+  backdrop-filter: blur(20px);
+}
+
+.card h2 {
+  font-size: var(--text-24);
+  font-weight: var(--weight-medium);
+  line-height: 34px;
+  letter-spacing: -0.24px;
+}
+
+.card p {
+  margin-top: 29.7px; /* heading cap-top 551 -> text cap-top 598 */
+  font-size: 1.0625rem;
+  line-height: 27px;
+  letter-spacing: 0.17px;
+  color: var(--color-light-02);
+}
+
+.cta {
+  position: absolute;
+  top: 177px; /* 694 - 516 - border */
+  left: 29px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 17px 21px 17px 24px;
+  background: var(--color-primary);
+  color: var(--color-light-01);
+}
+
+.cta span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cta:hover {
+  background: var(--color-secondary);
+}
+
+.controls {
+  position: absolute;
+  top: 741px;
+  left: var(--gutter);
+  display: flex;
+  gap: 15px;
+}
+
+.controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(253, 251, 248, 0.08);
+  border: 1px solid rgba(253, 251, 248, 0.08);
+  backdrop-filter: blur(20px);
+}
+
+.controls button:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.index {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  top: 405px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 40px; /* trimmed 10px lines on a 50px pitch */
+  text-align: right;
+}
+
+.index button {
+  display: block;
+  opacity: 0.3;
+}
+
+.index button span {
+  display: block;
+  text-box: trim-both cap alphabetic;
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  color: var(--color-light-01);
+}
+
+.index button[aria-current="true"] {
+  opacity: 1;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    height: auto;
+    min-height: 720px;
+    padding: 180px 0 48px;
+  }
+
+  .bg {
+    inset: 0 !important;
+    height: 100% !important;
+  }
+
+  .shade {
+    inset: 0;
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .copy,
+  .card,
+  .controls {
+    position: static;
+    width: auto;
+  }
+
+  .cta {
+    position: static;
+    margin-top: 24px;
+  }
+
+  .card {
+    height: auto;
+    padding-bottom: 30px;
+  }
+
+  .title {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+
+  .badge,
+  .index {
+    display: none;
+  }
+}

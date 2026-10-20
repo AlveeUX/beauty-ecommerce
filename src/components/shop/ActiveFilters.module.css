@@ -1,0 +1,57 @@
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* "Clear all" sits right after the chips (Figma 3:38762) */
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  background: var(--color-bg-light-01);
+  color: var(--color-dark-02);
+  font-size: var(--text-15);
+  line-height: 14px; /* chip is 26 tall in the frames: 6 + 14 + 6 */
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+/* the leading chip is dark in the design (Figma 3:4960) */
+.first {
+  background: var(--color-dark-01);
+  color: var(--color-light-01);
+}
+
+.chip:hover {
+  background: var(--color-primary);
+  color: var(--color-light-01);
+}
+
+.dot {
+  width: 13px;
+  height: 13px;
+  margin-left: 4px;
+  border-radius: 50%;
+}
+
+.clear {
+  flex: none;
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 14px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 6.5%;
+  text-underline-offset: 3px;
+}
+
+.clear:hover {
+  color: var(--color-primary);
+}

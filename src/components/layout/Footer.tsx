@@ -1,0 +1,109 @@
+import Image from "next/image";
+import Link from "next/link";
+import { Icon } from "@/components/ui/Icon";
+import { NewsletterForm } from "./NewsletterForm";
+import styles from "./Footer.module.css";
+
+type FooterLink = { label: string; href: string; active?: boolean };
+
+const SHOP_NOW: FooterLink[] = [
+  { label: "All Products", href: "/shop", active: true },
+  { label: "Best Sellers", href: "/shop?badge=best-seller" },
+  { label: "Skincare", href: "/category/skincare" },
+  { label: "Sets & Bundles", href: "/shop?collection=sets-bundles" },
+  { label: "New Arrivals", href: "/shop?badge=new" },
+  { label: "Categories", href: "/categories" },
+  { label: "Offers", href: "/shop?availability=on-sale" },
+];
+const QUICK_LINK: FooterLink[] = [
+  { label: "Our Story", href: "/about" },
+  { label: "Ingredients", href: "/blog" },
+  { label: "Skin Journal", href: "/blog" },
+  { label: "Reviews", href: "/shop" },
+  { label: "FAQs", href: "/faqs" },
+  { label: "Pricing", href: "/shop" },
+  { label: "Docs", href: "/policy/terms" },
+];
+const GET_HELP: FooterLink[] = [
+  { label: "Contact Us", href: "/contact" },
+  { label: "Shipping", href: "/policy/shipping" },
+  { label: "Returns", href: "/policy/returns" },
+  { label: "Track Order", href: "/track-order" },
+  { label: "Privacies", href: "/policy/privacy" },
+  { label: "Teams", href: "/policy/terms" },
+  { label: "Online", href: "/store-locator" },
+];
+
+/** Site footer. Figma 3:5861. */
+export function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer className={styles.footer}>
+      <div className={`container ${styles.top}`}>
+        <div className={styles.newsletter}>
+          <p className={styles.pitch}>Get skincare tips, product drops and exclusive offers.</p>
+          <NewsletterForm />
+          <Image
+            className={styles.payments}
+            src="/images/ui/payments.svg"
+            alt="Accepted payment methods: Visa, Mastercard, American Express, Discover, Bitcoin, PayPal"
+            width={264}
+            height={24}
+            unoptimized
+          />
+        </div>
+        <FooterColumn title="Shop now" links={SHOP_NOW} />
+        <FooterColumn title="Quick link" links={QUICK_LINK} />
+        <FooterColumn title="Get help" links={GET_HELP} />
+        <Image
+          className={styles.bcorp}
+          src="/images/ui/bcorp.svg"
+          alt="Certified B Corporation"
+          width={72}
+          height={121}
+          unoptimized
+        />
+      </div>
+
+      <div className={styles.bottom}>
+        <div className={`container ${styles.bottomInner}`}>
+          <p className={styles.copy}>
+            © {year} <strong>Cosmia.</strong> All rights reserved.
+          </p>
+          <Link href="/" className={styles.logo} aria-label="Cosmia Skincare &amp; Cosmetics, home">
+            <span className={styles.wordmark}>Cosmia</span>{" "}
+            <span className={styles.tagline}>Skincare &amp; Cosmetics</span>
+          </Link>
+          <Image
+            className={styles.socials}
+            src="/images/ui/socials.svg"
+            alt="Social media: Facebook, Instagram, X, LinkedIn"
+            width={130}
+            height={28}
+            unoptimized
+          />
+        </div>
+        <a href="#top" className={styles.toTop} aria-label="Back to top">
+          <Icon name="arrow-up" size={20} />
+        </a>
+      </div>
+    </footer>
+  );
+}
+
+function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
+  return (
+    <nav aria-label={title} className={styles.column}>
+      <h2 className={styles.heading}>{title}</h2>
+      <ul>
+        {links.map((link) => (
+          <li key={link.label}>
+            <Link href={link.href} className={link.active ? styles.active : undefined}>
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}

@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1171276251">
+<foreignObject x="-40" y="-40" width="108" height="108"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_0_0_60_clip_path);height:100%;width:100%"></div></foreignObject><g id="Ellipse 6" data-figma-bg-blur-radius="40">
+<circle cx="14" cy="14" r="14" fill="#FDFBF8" fill-opacity="0.08"/>
+<circle cx="14" cy="14" r="13.5" stroke="#FDFBF8" stroke-opacity="0.08"/>
+</g>
+<g id="twitter 1" clip-path="url(#clip1_0_60)">
+<path id="Vector" d="M20.4251 8.75001C19.8665 9.14403 19.248 9.4454 18.5935 9.64251C18.2421 9.23855 17.7752 8.95224 17.2559 8.8223C16.7366 8.69235 16.1898 8.72504 15.6897 8.91594C15.1895 9.10684 14.7601 9.44674 14.4594 9.88967C14.1587 10.3326 14.0013 10.8572 14.0085 11.3925V11.9758C12.9833 12.0024 11.9675 11.7751 11.0516 11.314C10.1356 10.853 9.34782 10.1725 8.75846 9.33334C8.75846 9.33334 6.42513 14.5833 11.6751 16.9167C10.4738 17.7322 9.04264 18.141 7.5918 18.0833C12.8418 21 19.2585 18.0833 19.2585 11.375C19.2579 11.2125 19.2423 11.0504 19.2118 10.8908C19.8071 10.3037 20.2273 9.56242 20.4251 8.75001Z" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round" stroke="#FDFBF8"/>
+</g>
+</g>
+<defs>
+<clipPath id="bgblur_0_0_60_clip_path" transform="translate(40 40)"><circle cx="14" cy="14" r="14"/>
+</clipPath><clipPath id="clip1_0_60">
+<rect width="14" height="14" fill="white" transform="translate(7.00195 6.99902)"/>
+</clipPath>
+</defs>
+</svg>

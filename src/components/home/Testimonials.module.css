@@ -1,0 +1,202 @@
+.frame {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-left: max(var(--gutter), calc((100vw - var(--container)) / 2));
+}
+
+.track {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track > li {
+  flex: 0 0 420px;
+  scroll-snap-align: start;
+}
+
+/* the design's gaps are 29 / 31 / 31px */
+.track > li:nth-child(2) {
+  margin-left: -1px;
+}
+
+.track > li:nth-child(3),
+.track > li:nth-child(4) {
+  margin-left: 1px;
+}
+
+/* 420 x 554: 500px photo, 55px solid foot, copy placed by cap height (Figma 3:3112) */
+.card {
+  position: relative;
+  height: 554px;
+  overflow: hidden;
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+.photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.photo img {
+  object-fit: cover;
+}
+
+.shade {
+  position: absolute;
+  top: 252px;
+  left: 0;
+  width: 420px;
+  height: 248px;
+  background: linear-gradient(180deg, rgba(36, 28, 27, 0) 0%, var(--color-bg-dark) 100%);
+}
+
+.handle span,
+.verified span,
+.rating > span,
+.card h3,
+.card blockquote,
+.shop span {
+  text-box: trim-both cap alphabetic;
+}
+
+.handle {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 6px;
+  background: rgba(253, 251, 248, 0.08);
+  backdrop-filter: blur(15px);
+}
+
+.handle span {
+  display: block;
+  font-size: var(--text-13);
+  line-height: 24px;
+  letter-spacing: 0.26px;
+  text-transform: uppercase;
+}
+
+.verified {
+  position: absolute;
+  top: 20px;
+  left: 321px;
+  display: flex;
+  align-items: flex-start;
+  gap: 3px;
+  opacity: 0.6;
+}
+
+.verified span {
+  margin-top: 1px;
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+}
+
+.rating {
+  position: absolute;
+  top: 370px;
+  left: 30px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6.2px;
+}
+
+.rating > span {
+  margin-top: 1px;
+  font-size: var(--text-14);
+  line-height: 21px;
+  color: var(--color-light-02);
+}
+
+li:nth-child(even) .rating > span {
+  color: var(--color-light-03);
+}
+
+.card h3 {
+  position: absolute;
+  top: 402px;
+  left: 30px;
+  font-size: var(--text-18);
+  font-weight: var(--weight-medium);
+  line-height: 28px;
+  white-space: nowrap;
+}
+
+.card blockquote {
+  position: absolute;
+  margin: 0;
+  top: 443.2px; /* two 28px lines centred on y+463.5 */
+  left: 30px;
+  width: 360px;
+  font-size: var(--text-18);
+  line-height: 28px;
+  letter-spacing: 0.18px;
+  color: var(--color-light-02);
+}
+
+.shop {
+  position: absolute;
+  top: 514px;
+  left: 30px;
+}
+
+.shop span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 7%;
+  text-underline-offset: 3px;
+}
+
+.arrow {
+  position: absolute;
+  top: 266px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-bg-body);
+  color: var(--color-dark-01);
+  transition:
+    background-color var(--duration-fast) var(--ease),
+    color var(--duration-fast) var(--ease);
+}
+
+.arrow:hover {
+  background: var(--color-primary);
+  color: var(--color-light-01);
+}
+
+.prev {
+  left: calc(max(var(--gutter), (100vw - var(--container)) / 2) - 20px);
+}
+
+.next {
+  right: calc(max(var(--gutter), (100vw - var(--container)) / 2) - 21px);
+}
+
+@media (max-width: 700px) {
+  .track > li {
+    flex-basis: 80vw;
+  }
+}

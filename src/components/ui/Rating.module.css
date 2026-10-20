@@ -1,0 +1,39 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars {
+  display: inline-flex;
+  gap: 1px;
+}
+
+.on {
+  color: var(--color-primary);
+}
+
+.off {
+  color: var(--color-border-light);
+}
+
+/* product card strip: stars on the row top, count 1px lower (Figma 3:2303 / 3:2304) */
+.card {
+  align-items: flex-start;
+  gap: 6.2px;
+}
+
+.card svg {
+  margin-top: -0.25px;
+}
+
+.card .count {
+  margin-top: 1px;
+  text-box: trim-both cap alphabetic;
+}
+
+.count {
+  font-size: var(--text-14);
+  line-height: 21px;
+  color: var(--color-dark-02);
+}

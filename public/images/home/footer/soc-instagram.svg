@@ -1,0 +1,19 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1171276250">
+<foreignObject x="-40" y="-40" width="108" height="108"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_0_0_14_clip_path);height:100%;width:100%"></div></foreignObject><g id="Ellipse 6" data-figma-bg-blur-radius="40">
+<circle cx="14" cy="14" r="14" fill="#FDFBF8" fill-opacity="0.08"/>
+<circle cx="14" cy="14" r="13.5" stroke="#FDFBF8" stroke-opacity="0.08"/>
+</g>
+<g id="instagram 1" clip-path="url(#clip1_0_14)">
+<path id="Vector" d="M11.0798 8.16602H16.9131C18.524 8.16602 19.8298 9.47185 19.8298 11.0827V16.916C19.8298 18.5268 18.524 19.8327 16.9131 19.8327H11.0798C9.46897 19.8327 8.16313 18.5268 8.16313 16.916V11.0827C8.16313 9.47185 9.46897 8.16602 11.0798 8.16602Z" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round" stroke="#FDFBF8"/>
+<path id="Vector_2" d="M16.3335 13.6328C16.4055 14.1183 16.3226 14.6141 16.0965 15.0497C15.8705 15.4854 15.5129 15.8386 15.0745 16.0593C14.6361 16.28 14.1393 16.3568 13.6547 16.2788C13.1702 16.2008 12.7225 15.972 12.3755 15.625C12.0285 15.278 11.7997 14.8303 11.7217 14.3458C11.6438 13.8612 11.7206 13.3644 11.9412 12.926C12.1619 12.4877 12.5151 12.13 12.9508 11.904C13.3864 11.6779 13.8822 11.595 14.3677 11.667C14.8629 11.7404 15.3214 11.9712 15.6753 12.3252C16.0293 12.6792 16.2601 13.1376 16.3335 13.6328Z" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round" stroke="#FDFBF8"/>
+<path id="Vector_3" d="M17.2121 10.7921H17.2206" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round" stroke="#FDFBF8"/>
+</g>
+</g>
+<defs>
+<clipPath id="bgblur_0_0_14_clip_path" transform="translate(40 40)"><circle cx="14" cy="14" r="14"/>
+</clipPath><clipPath id="clip1_0_14">
+<rect width="14" height="14" fill="white" transform="translate(7.00103 6.99902)"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,1270 @@
+/* Shared section header ------------------------------------------------ */
+/* Figma places text by cap height (eyebrow cap-top 0, title cap-top +40, button +26). */
+.header {
+  position: relative;
+  height: 78px;
+}
+
+.center {
+  height: 146px; /* 4710 -> 4856 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrow,
+.eyebrowRed {
+  font-size: var(--text-14);
+  font-weight: var(--weight-semibold);
+  line-height: 24px;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  text-box: trim-both cap alphabetic;
+}
+
+.eyebrowRed {
+  color: var(--color-primary);
+}
+
+.titleShift {
+  margin-left: -2px;
+}
+
+.title {
+  margin-top: 30px;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: var(--weight-regular);
+  line-height: 58px;
+  text-box: trim-both cap alphabetic;
+}
+
+.intro {
+  width: 404px;
+  margin-top: 30px;
+  text-box: trim-both cap alphabetic;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-03);
+}
+
+.outlineButton,
+.darkButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px 21px 16px 24px;
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    background-color var(--duration-fast) var(--ease),
+    color var(--duration-fast) var(--ease);
+}
+
+.outlineButton span,
+.darkButton span {
+  text-box: trim-both cap alphabetic;
+}
+
+.outlineButton {
+  position: absolute;
+  top: 26px;
+  right: 0;
+  border: 1px solid var(--color-dark-01);
+}
+
+.outlineButton:hover {
+  background: var(--color-dark-01);
+  color: var(--color-light-01);
+}
+
+.darkButton {
+  margin-top: 40px;
+  background: var(--color-dark-01);
+  color: var(--color-light-01);
+}
+
+.darkButton:hover {
+  background: var(--color-primary);
+}
+
+/* Find favorites -------------------------------------------------------- */
+.favorites {
+  padding-block: 100px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 308px);
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.category {
+  position: relative;
+  display: block;
+  height: 420px;
+  overflow: hidden;
+  background: var(--color-bg-light-01);
+}
+
+.category img {
+  object-fit: cover;
+  transition: transform 500ms var(--ease);
+}
+
+.category:hover img {
+  transform: scale(1.04);
+}
+
+/* caption glass: 278x80, 15px from the card edges (Figma 3:2519) */
+.label {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 0;
+  background: rgba(253, 251, 248, 0.6);
+  backdrop-filter: blur(15px);
+}
+
+.label strong {
+  font-size: var(--text-18);
+  font-weight: var(--weight-medium);
+  line-height: 28px;
+  letter-spacing: -0.18px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.label span {
+  margin-top: 15px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-03);
+  text-box: trim-both cap alphabetic;
+}
+
+.count,
+.go {
+  position: absolute;
+  top: 15px;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease);
+}
+
+.count {
+  left: 15px;
+  padding: 6px 7px;
+  background: rgba(253, 251, 248, 0.6);
+  backdrop-filter: blur(15px);
+}
+
+.count span {
+  display: block;
+  font-size: var(--text-13);
+  line-height: 24px;
+  letter-spacing: 0.13px;
+  text-transform: uppercase;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.go {
+  right: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+.category:hover .count,
+.category:hover .go,
+.category:focus-visible .count,
+.category:focus-visible .go {
+  opacity: 1;
+}
+
+/* Marquee --------------------------------------------------------------- */
+.marquee {
+  height: 82px;
+  overflow: hidden;
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+/* the first item starts 257px off-screen, as in the design (3:2451) */
+.marquee ul {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: 100%;
+  margin-left: -257px;
+  animation: marquee 40s linear infinite;
+}
+
+.marquee li {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding-right: 64px;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 30px;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee li span {
+  text-box: trim-both cap alphabetic;
+}
+
+.marquee svg {
+  flex: none;
+  color: var(--color-primary);
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee ul {
+    animation: none;
+  }
+}
+
+/* Trending now ---------------------------------------------------------- */
+.trending {
+  padding-block: 100px;
+  background: var(--color-bg-light-01);
+  overflow-x: clip;
+}
+
+.trending > :last-child {
+  margin-top: 50px;
+}
+
+/* Fresh drops ----------------------------------------------------------- */
+.drops {
+  padding-block: 100px 99px;
+}
+
+.dropsGrid {
+  display: grid;
+  grid-template-columns: 870px 420px;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.feature {
+  position: relative;
+  height: 570px;
+  overflow: hidden;
+  background: var(--color-bg-light-01);
+  color: var(--color-light-01);
+}
+
+/* fill crop from the design: 117.39% wide, 10.3% off to the left (3:2752) */
+.featureImage {
+  position: absolute;
+  top: 0;
+  left: -10.3%;
+  width: 117.39%;
+  height: 100%;
+  max-width: none;
+  object-fit: fill;
+}
+
+/* 3:2766: 339px fade from the bottom, solid until 22.4% */
+.featureShade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 339px;
+  background: linear-gradient(0deg, var(--color-bg-dark) 22.419%, rgba(36, 28, 27, 0) 100%);
+}
+
+.freeBadge {
+  position: absolute;
+  top: 30px;
+  left: 710px;
+  width: 130px;
+  height: 130px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.freeBadge img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.freeBadge .freeFill {
+  top: 8px;
+  left: 8px;
+}
+
+.freeBadge .freeTruck {
+  top: 26px;
+  left: 52.5px;
+}
+
+.freeTitle,
+.freeNote {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-box: trim-both cap alphabetic;
+}
+
+.freeTitle {
+  top: 57.28px;
+  width: 98.388px;
+  font-size: 15.267px;
+  font-weight: var(--weight-semibold);
+  line-height: 18.78px;
+  letter-spacing: 0.3053px;
+}
+
+.freeNote {
+  top: 94.83px;
+  white-space: nowrap;
+  font-size: 10.583px;
+  font-weight: var(--weight-medium);
+  line-height: 18.142px;
+  letter-spacing: 0.2117px;
+  color: var(--color-light-02);
+}
+
+.featureText {
+  position: absolute;
+  top: 324px;
+  left: 50px;
+}
+
+.featureText p {
+  font-size: var(--text-14);
+  font-weight: var(--weight-semibold);
+  line-height: 24px;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  text-box: trim-both cap alphabetic;
+}
+
+.featureText h3 {
+  width: 318px;
+  margin-top: 30px;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: var(--weight-regular);
+  line-height: 48px;
+  letter-spacing: 0.4px;
+  text-box: trim-both cap alphabetic;
+}
+
+.featureCta {
+  position: absolute;
+  top: 150px; /* button y=3250, eyebrow cap-top y=3100 */
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 26px;
+  background: var(--color-primary);
+  color: var(--color-light-01);
+  white-space: nowrap;
+}
+
+.featureCta span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  text-box: trim-both cap alphabetic;
+}
+
+.featureCta:hover {
+  background: var(--color-secondary);
+}
+
+.dots {
+  position: absolute;
+  top: 512px;
+  left: 776px;
+  display: flex;
+  gap: 10px;
+}
+
+.dots i {
+  width: 8px;
+  height: 8px;
+  background: var(--color-light-01);
+  opacity: 0.2;
+}
+
+.dots i[data-on] {
+  opacity: 1;
+}
+
+/* side cards: 420 x 170 on a 200px pitch (Figma 3:2701, 3:2733, 3:2717) */
+.dropList {
+  display: grid;
+  grid-auto-rows: 170px;
+  gap: 30px;
+}
+
+.dropList > li {
+  position: relative;
+  background: var(--color-bg-light-01);
+}
+
+.dropImage {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+}
+
+.dropImage img {
+  object-fit: cover;
+}
+
+.dropEyebrow,
+.dropName,
+.dropLabel,
+.dropPrice > span:first-child,
+.dropPrice s {
+  position: absolute;
+  left: 165px;
+  white-space: nowrap;
+  text-box: trim-both cap alphabetic;
+}
+
+.dropEyebrow {
+  top: 25px;
+  margin-left: 1px;
+  font-size: var(--text-14);
+  font-weight: var(--weight-semibold);
+  line-height: 24px;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.dropName {
+  top: 54px;
+  font-size: var(--text-18);
+  font-weight: var(--weight-medium);
+  line-height: 28px;
+  letter-spacing: -0.18px;
+  color: var(--color-dark-01);
+}
+
+.dropName a:hover {
+  color: var(--color-primary);
+}
+
+.dropLabel {
+  top: 85px;
+  font-size: var(--text-14);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  color: var(--color-dark-03);
+}
+
+.dropPrice > span:first-child {
+  top: 127px;
+  font-size: var(--text-18);
+  font-weight: var(--weight-semibold);
+  line-height: 28px;
+  letter-spacing: -0.18px;
+  text-transform: uppercase;
+  color: var(--color-dark-01);
+}
+
+.dropPrice s {
+  top: 129px;
+  left: 207px;
+  font-size: var(--text-14);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  color: var(--color-dark-03);
+  opacity: 0.5;
+}
+
+.plus {
+  position: absolute;
+  top: 109px;
+  right: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-bg-body);
+  color: var(--color-dark-01);
+  transition:
+    background-color var(--duration-fast) var(--ease),
+    color var(--duration-fast) var(--ease);
+}
+
+.plus[data-tone="dark"] {
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+.plus:hover {
+  background: var(--color-primary);
+  color: var(--color-light-01);
+}
+
+/* Feature strip --------------------------------------------------------- */
+/* Dashed rules are the design's own line artwork. Row 0 and row 264 carry the horizontal ones. */
+.featureSection {
+  padding-bottom: 0;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 330px);
+  height: 265px;
+  padding-top: 31px;
+  background:
+    url("/images/home/icons/line-h.svg") top left / 1320px 1px no-repeat,
+    url("/images/home/icons/line-h.svg") bottom left / 1320px 1px no-repeat;
+}
+
+.features > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 2px;
+  background: url("/images/home/icons/line-vert.svg") top left / 1px 199px no-repeat;
+}
+
+.features > li:last-child {
+  background:
+    url("/images/home/icons/line-vert.svg") top left / 1px 199px no-repeat,
+    url("/images/home/icons/line-vert.svg") top right / 1px 199px no-repeat;
+}
+
+.featureIcon {
+  position: relative;
+  flex: none;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--color-bg-light-01);
+}
+
+.featureIcon > span {
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  width: 48px;
+  height: 48px;
+}
+
+.featureIcon img {
+  width: 48px;
+  height: 48px;
+}
+
+/* the design writes units lowercase inside uppercase labels */
+.unit {
+  text-transform: lowercase;
+}
+
+.features h3 {
+  margin-top: 30px; /* icon bottom 3566 -> title cap-top 3596 */
+  font-size: var(--text-20);
+  font-weight: var(--weight-medium);
+  line-height: 30px;
+  letter-spacing: -0.2px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.features p {
+  width: 265px;
+  margin-top: 26px;
+  text-align: center;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-02);
+  text-box: trim-both cap alphabetic;
+}
+
+/* Editorial banner ------------------------------------------------------ */
+/* 1860 x 800 card, 30px from the page edges (Figma 3:2784); text is placed by cap height. */
+.editorial {
+  padding: 100px 30px 0;
+}
+
+.editorialInner {
+  position: relative;
+  height: 800px;
+  overflow: hidden;
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+/* 3:2785: 1019 x 467.55 frame at 20%, the pattern is clipped to the 1432 x 716 mask box */
+.waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1019px;
+  height: 467.55px;
+  overflow: hidden;
+  opacity: 0.2;
+}
+
+.waves > div {
+  position: absolute;
+  top: -304.6px;
+  left: -331.5px;
+  width: 1432.5px;
+  height: 716.2px;
+  overflow: hidden;
+}
+
+.waves img {
+  position: absolute;
+  top: -575.9px;
+  left: -529px;
+  width: 2438.6px;
+  height: 1957.6px;
+  max-width: none;
+}
+
+.editorialText {
+  position: absolute;
+  inset: 0;
+}
+
+.editorialText > * {
+  position: absolute;
+  left: calc((100% - 1320px) / 2);
+}
+
+.editorialEyebrow,
+.editorialText h2,
+.editorialCopy,
+.editorialCta span,
+.film span {
+  text-box: trim-both cap alphabetic;
+}
+
+.editorialEyebrow {
+  top: 187px;
+  font-size: var(--text-14);
+  font-weight: var(--weight-semibold);
+  line-height: 24px;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-secondary);
+}
+
+.editorialText h2 {
+  top: 227px;
+  width: 533px;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: var(--weight-regular);
+  line-height: 58px;
+}
+
+.editorialCopy {
+  top: 411px;
+  width: 451px;
+  font-size: 1.0625rem;
+  line-height: 27px;
+  letter-spacing: 0.17px;
+  color: var(--color-light-02);
+}
+
+.editorialCta {
+  top: 507px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 17px 21px 17px 24px;
+  background: var(--color-primary);
+  color: var(--color-light-01);
+  white-space: nowrap;
+}
+
+.editorialCta span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+}
+
+.editorialCta:hover {
+  background: var(--color-secondary);
+}
+
+.film {
+  top: 589px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.film span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 7%;
+  text-underline-offset: 4px;
+}
+
+.editorialImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 838px;
+  height: 800px;
+}
+
+.editorialImage img {
+  object-fit: cover;
+}
+
+.editorialThumb {
+  position: absolute;
+  top: 281px;
+  right: 741px;
+  width: 200px;
+  height: 240px;
+  background: var(--color-bg-light-01);
+}
+
+.editorialThumb img {
+  object-fit: cover;
+}
+
+/* handwritten tag: Allura 48px turned 16.54deg counter-clockwise (Figma 3:2839) */
+.script {
+  position: absolute;
+  top: 190px;
+  right: 680.5px;
+  width: 130.867px;
+  height: 151px;
+  color: var(--color-light-01);
+  pointer-events: none;
+}
+
+.script p {
+  position: absolute;
+  top: -12.9px;
+  left: 64.59px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 129.175px;
+  height: 140.63px;
+  transform: translateX(-50%) rotate(-16.54deg);
+  font-family: var(--font-script);
+  font-size: 3rem;
+  white-space: pre;
+}
+
+.script p span:nth-child(1),
+.script p span:nth-child(2) {
+  line-height: 32.213px;
+}
+
+.script p span:nth-child(3) {
+  line-height: 29.193px;
+}
+
+.script p span:nth-child(4) {
+  line-height: 27.18px;
+}
+
+.script img {
+  position: absolute;
+  top: 136.8px;
+  left: 40px;
+  width: 93.0935px;
+  height: 1.11px;
+  transform: rotate(-16.54deg);
+}
+
+@media (max-width: 1100px) {
+  .editorialInner {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .editorialImage {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    order: 2;
+  }
+
+  .editorialThumb,
+  .script,
+  .waves {
+    display: none;
+  }
+
+  .editorialText {
+    position: static;
+    padding: 48px 24px;
+  }
+
+  .editorialText > * {
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .editorialText h2 {
+    width: auto;
+    font-size: 2.5rem;
+    line-height: 1.15;
+  }
+
+  .editorialCopy {
+    width: auto;
+  }
+}
+
+/* Most loved ------------------------------------------------------------ */
+.loved {
+  padding-top: 100px;
+}
+
+.lovedGrid > li:nth-child(2) {
+  transform: translateX(2.67px); /* the design's gaps are 32 / 30 / 26px, not equal */
+}
+
+.lovedGrid > li:nth-child(3) {
+  transform: translateX(3.33px);
+}
+
+.lovedGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 308px);
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+/* Made personal / bundle band ------------------------------------------- */
+.personal {
+  padding-block: 100px;
+  background: var(--color-bg-light-01);
+  overflow-x: clip;
+}
+
+.personalHeader {
+  position: relative;
+  height: 78px;
+}
+
+.personalHeader[data-offset] {
+  padding-left: 1px; /* the bundle header sits 1px right of the stories header in the design */
+}
+
+.personalHeader p.side {
+  position: absolute;
+  top: 40px;
+  left: 901px;
+  width: 404px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-02);
+  text-box: trim-both cap alphabetic;
+}
+
+.personalCarousel {
+  margin-top: 50px;
+}
+
+/* Figma Line 56: full-width dashed rule 100px under the stories */
+.rule {
+  height: 1px;
+  margin: 100px calc(50% - 50vw) 99px;
+  border: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-border-light) 0 1px,
+    transparent 1px 3px,
+    var(--color-border-light) 3px 4px
+  );
+}
+
+/* Journal --------------------------------------------------------------- */
+/* Eyebrow cap-top 7607 = first card top; title +40; button +224; cards 870 x 280 on a 310px pitch */
+.journal {
+  padding-block: 100px 100px;
+}
+
+.journalGrid {
+  display: grid;
+  grid-template-columns: 294px 870px;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.journalIntro {
+  position: relative;
+}
+
+.journalTitle {
+  width: 294px;
+  margin-top: 30px;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: var(--weight-regular);
+  line-height: 58px;
+  text-box: trim-both cap alphabetic;
+}
+
+.blogButton {
+  position: absolute;
+  top: 224px;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px 21px 16px 24px;
+  background: var(--color-dark-01);
+  color: var(--color-light-01);
+  white-space: nowrap;
+  transition: background-color var(--duration-fast) var(--ease);
+}
+
+.blogButton span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  text-box: trim-both cap alphabetic;
+}
+
+.blogButton:hover {
+  background: var(--color-primary);
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.post {
+  position: relative;
+  display: block;
+  height: 280px;
+  background: var(--color-bg-light-01);
+}
+
+.postImage {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 405px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.postImage img {
+  object-fit: cover;
+  transition: transform 500ms var(--ease);
+}
+
+.post:hover .postImage img {
+  transform: scale(1.04);
+}
+
+.postMeta {
+  position: absolute;
+  top: 30px;
+  left: 450px;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.postMeta em {
+  display: block;
+  padding: 9px;
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+  font-style: normal;
+}
+
+.postMeta em[data-accent] {
+  background: var(--color-primary);
+}
+
+.postMeta em span,
+.postDate,
+.postTitle,
+.postRead {
+  display: block;
+  text-box: trim-both cap alphabetic;
+}
+
+.postMeta em span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+}
+
+.postDate {
+  margin-top: 10px;
+  font-size: var(--text-14);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  color: var(--color-dark-02);
+}
+
+.postTitle {
+  position: absolute;
+  top: 78px;
+  left: 450px;
+  width: 390px;
+  font-family: var(--font-display);
+  font-size: var(--text-24);
+  line-height: 36px;
+  letter-spacing: 0.24px;
+  color: var(--color-dark-01);
+}
+
+/* dashed rule 202px down (Figma Line 48), read time under it, arrow at the far end */
+.post::after {
+  content: "";
+  position: absolute;
+  top: 201px;
+  left: 450px;
+  width: 390px;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-border-light) 0 1px,
+    transparent 1px 3px,
+    var(--color-border-light) 3px 4px
+  );
+}
+
+.postRead {
+  position: absolute;
+  top: 236px;
+  left: 450px;
+  width: 94px;
+  text-align: right;
+  font-size: var(--text-14);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  color: var(--color-dark-02);
+}
+
+.postGo {
+  position: absolute;
+  top: 231px;
+  left: 822px;
+  color: var(--color-dark-01);
+}
+
+@media (max-width: 1100px) {
+  .journalGrid {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+
+  .journalIntro {
+    min-height: 0;
+  }
+
+  .journalTitle {
+    width: auto;
+  }
+
+  .blogButton {
+    position: static;
+    margin-top: 24px;
+  }
+
+  .post {
+    height: auto;
+    padding: 15px;
+  }
+
+  .postImage,
+  .postMeta,
+  .postTitle,
+  .postRead,
+  .postGo {
+    position: static;
+    width: auto;
+  }
+
+  .postImage {
+    aspect-ratio: 405 / 250;
+    margin-bottom: 16px;
+  }
+
+  .postTitle {
+    margin-block: 16px;
+  }
+
+  .post::after {
+    display: none;
+  }
+}
+
+/* Instagram ------------------------------------------------------------- */
+/* Band 574px tall starting 41px below the circle's top (Figma 3:3211, 3:3215); title cap-top +69, tiles +215 */
+.insta {
+  position: relative;
+  height: 574px;
+  margin-top: 41px;
+  background: var(--color-bg-light-01);
+}
+
+.instaIcon {
+  position: absolute;
+  top: -41px;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.instaTitle {
+  width: 476px;
+  margin: 0 auto;
+  padding-top: 69px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: var(--weight-regular);
+  line-height: 58px;
+  text-box: trim-both cap alphabetic;
+}
+
+.instaGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 202.367px);
+  justify-content: space-between;
+  margin-top: 50px; /* two title lines: cap-top 8717 -> tiles 8863 */
+}
+
+.instaGrid a {
+  position: relative;
+  display: block;
+  height: 248.521px;
+  overflow: hidden;
+}
+
+.instaGrid img {
+  object-fit: cover;
+}
+
+/* hover state from the design: 50% Dark-01 veil with a small Instagram glyph */
+.instaHover {
+  position: absolute;
+  inset: 0;
+  background: var(--color-dark-01) url("/images/home/icons/instagram-18.svg") center / 18px 18px
+    no-repeat;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease);
+}
+
+.instaGrid a:hover .instaHover,
+.instaGrid a:focus-visible .instaHover {
+  opacity: 0.5;
+}
+
+@media (max-width: 1100px) {
+  .cards,
+  .lovedGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .dropsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature {
+    height: 420px;
+  }
+
+  .dropList {
+    height: auto;
+  }
+
+  .features {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .instaGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .header,
+  .personalHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    line-height: 1.15;
+  }
+}

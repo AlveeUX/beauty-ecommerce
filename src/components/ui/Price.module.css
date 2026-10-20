@@ -1,0 +1,29 @@
+.price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.current {
+  font-size: var(--text-18);
+  font-weight: var(--weight-semibold);
+  line-height: 28px;
+  letter-spacing: -0.18px;
+  color: var(--color-dark-01);
+}
+
+.lg .current {
+  font-size: var(--text-24);
+  line-height: 34px;
+  letter-spacing: -0.24px;
+}
+
+.compare {
+  font-size: var(--text-14);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  color: var(--color-dark-03);
+  opacity: 0.5;
+}

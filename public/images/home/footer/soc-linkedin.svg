@@ -1,0 +1,19 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1171276252">
+<foreignObject x="-40" y="-40" width="108" height="108"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_0_0_8_clip_path);height:100%;width:100%"></div></foreignObject><g id="Ellipse 6" data-figma-bg-blur-radius="40">
+<circle cx="14" cy="14" r="14" fill="#FDFBF8" fill-opacity="0.08"/>
+<circle cx="14" cy="14" r="13.5" stroke="#FDFBF8" stroke-opacity="0.08"/>
+</g>
+<g id="linkedin 1" clip-path="url(#clip1_0_8)">
+<path id="Vector" d="M16.3375 11.6662C17.2658 11.6662 18.156 12.0349 18.8124 12.6913C19.4688 13.3477 19.8375 14.2379 19.8375 15.1662V19.2495H17.5042V15.1662C17.5042 14.8567 17.3813 14.56 17.1625 14.3412C16.9437 14.1224 16.647 13.9995 16.3375 13.9995C16.0281 13.9995 15.7314 14.1224 15.5126 14.3412C15.2938 14.56 15.1709 14.8567 15.1709 15.1662V19.2495H12.8375V15.1662C12.8375 14.2379 13.2063 13.3477 13.8627 12.6913C14.5191 12.0349 15.4093 11.6662 16.3375 11.6662Z" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round" stroke="#FDFBF8"/>
+<path id="Vector_2" d="M8.17202 12.2509H10.5054V19.2509H8.17202V12.2509Z" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round" stroke="#FDFBF8"/>
+<path id="Vector_3" d="M10.5052 9.33268C10.5052 9.97701 9.98287 10.4993 9.33854 10.4993C8.69421 10.4993 8.17188 9.97701 8.17188 9.33268C8.17188 8.68835 8.69421 8.16602 9.33854 8.16602C9.98287 8.16602 10.5052 8.68835 10.5052 9.33268Z" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round" stroke="#FDFBF8"/>
+</g>
+</g>
+<defs>
+<clipPath id="bgblur_0_0_8_clip_path" transform="translate(40 40)"><circle cx="14" cy="14" r="14"/>
+</clipPath><clipPath id="clip1_0_8">
+<rect width="14" height="14" fill="white" transform="translate(7.00146 6.99902)"/>
+</clipPath>
+</defs>
+</svg>

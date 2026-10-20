@@ -1,0 +1,89 @@
+.frame {
+  position: relative;
+}
+
+.track {
+  display: flex;
+  gap: 29.333px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track > li {
+  flex: 0 0 calc((100% - 3 * 29.333px) / 4);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.arrow {
+  position: absolute;
+  top: 235px; /* Figma: arrows at y+235 of the card */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-light-01);
+  color: var(--color-dark-01);
+  transition:
+    background-color var(--duration-fast) var(--ease),
+    color var(--duration-fast) var(--ease);
+}
+
+.arrow:hover {
+  background: var(--color-primary);
+  color: var(--color-light-01);
+}
+
+.prev {
+  left: -20px;
+}
+
+.next {
+  right: -20px;
+}
+
+/* Run to the viewport's right edge while the first card stays on the 1320 grid. */
+.bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-left: max(var(--gutter), calc((100vw - var(--container)) / 2));
+}
+
+.bleed .track {
+  scroll-padding-left: 0;
+}
+
+.bleed .track > li {
+  flex: 0 0 308px;
+}
+
+.bleed .prev {
+  left: calc(max(var(--gutter), (100vw - var(--container)) / 2) - 20px);
+}
+
+.bleed .next {
+  right: calc(max(var(--gutter), (100vw - var(--container)) / 2) - 20px);
+}
+
+@media (max-width: 1100px) {
+  .track > li,
+  .bleed .track > li {
+    flex: 0 0 calc((100% - 29px) / 2);
+  }
+
+  .prev,
+  .bleed .prev {
+    left: 8px;
+  }
+
+  .next,
+  .bleed .next {
+    right: 8px;
+  }
+}

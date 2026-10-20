@@ -1,0 +1,204 @@
+.header {
+  position: relative;
+  z-index: 50;
+  background: var(--color-bg-body);
+}
+
+/* Figma draws the 1px rule on y=110..111, over the first pixel row of the page hero (header is 110 tall) */
+.header::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 1px;
+  background: var(--color-border-light);
+  pointer-events: none;
+}
+
+.main {
+  height: var(--header-main-height);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 6px var(--header-gutter) 0;
+}
+
+.navLeft {
+  justify-self: start;
+  align-self: stretch;
+  display: flex;
+}
+
+.navRight {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navList {
+  display: flex;
+  align-items: stretch;
+  align-self: stretch;
+  gap: 24px;
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* the mega menu spans the whole header, so its item is not the positioning parent */
+.navItem[data-mega] {
+  position: static;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding-block: 8px;
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Menus open on hover and on keyboard focus (CSS only). Figma 3:1749 (dropdown) and 3:1452 (mega). */
+.navLink:hover,
+.navItem:hover > .navLink,
+.navItem:focus-within > .navLink {
+  color: var(--color-secondary);
+}
+
+.navItem:hover > .navLink svg,
+.navItem:focus-within > .navLink svg {
+  transform: rotate(180deg);
+}
+
+.navLink svg {
+  transition: transform var(--duration-fast) var(--ease);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 270px;
+  padding: 17px 30px 27px;
+  background: var(--color-bg-body);
+  border-top: 1px dashed var(--color-border-light);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition:
+    opacity var(--duration-fast) var(--ease),
+    transform var(--duration-fast) var(--ease),
+    visibility var(--duration-fast);
+}
+
+.navItem:hover > [data-menu-panel],
+.navItem:focus-within > [data-menu-panel] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.dropLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-15);
+  line-height: 37px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.dropLink:hover {
+  color: var(--color-primary);
+}
+
+.current {
+  color: var(--color-secondary);
+  text-decoration: underline;
+  text-decoration-thickness: 6.5%;
+  text-underline-offset: 4px;
+}
+
+.logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-transform: uppercase;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 29.426px;
+  line-height: 1;
+  letter-spacing: 7.356px;
+  /* trailing letter-spacing would offset the centered mark */
+  margin-right: -7.356px;
+}
+
+.tagline {
+  margin-top: 6px;
+  font-size: 9.524px;
+  line-height: 1;
+  letter-spacing: 0.476px;
+  color: var(--color-dark-03);
+}
+
+.divider {
+  width: 1px;
+  height: 18px;
+  background: var(--color-border-light);
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.icons a {
+  position: relative;
+  display: inline-flex;
+  padding: 4px;
+  margin: -4px;
+}
+
+.icons a:hover {
+  color: var(--color-primary);
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  min-width: 16px;
+  height: 16px;
+  padding-inline: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: var(--color-light-01);
+  font-size: var(--text-12);
+  font-weight: var(--weight-medium);
+  line-height: 16px;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .navLeft,
+  .navRight > nav,
+  .navRight .navList,
+  .divider {
+    display: none;
+  }
+
+  .main {
+    grid-template-columns: 1fr auto 1fr;
+    padding-inline: var(--gutter);
+  }
+}

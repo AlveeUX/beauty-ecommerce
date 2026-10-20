@@ -1,0 +1,37 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 350;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  background: rgba(36, 28, 27, 0.6);
+  cursor: default;
+}
+
+.box {
+  position: relative;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  background: var(--color-bg-body);
+  animation: modal-in 180ms var(--ease);
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .box {
+    animation: none;
+  }
+}

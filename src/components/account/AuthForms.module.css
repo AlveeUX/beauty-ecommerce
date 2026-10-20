@@ -1,0 +1,152 @@
+/* Login / register / forgot / track cards. Figma 3:22750: hero ends y=590, card 670 x 540 at y=690 with a
+   dashed Border Light outline, 50px inside padding, 570px wide controls, benefit strip 100px below. */
+.page {
+  padding-block: 100px;
+}
+
+.card {
+  width: 670px;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 49px; /* the 1px outline counts toward the 50px inset in the design */
+  border: 1px dashed var(--color-border-light);
+}
+
+.tabsRow {
+  display: flex;
+  justify-content: center;
+}
+
+.tabs {
+  display: inline-flex;
+  background: var(--color-bg-light-01);
+}
+
+.tab {
+  padding: 8px 0;
+  text-align: center;
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  text-transform: uppercase;
+  color: var(--color-dark-01);
+}
+
+.tab:first-child {
+  width: 87px;
+}
+
+.tab:last-child {
+  width: 113px;
+}
+
+.tab[aria-current="page"] {
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.withTabs {
+  margin-top: 50px;
+}
+
+.intro {
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-01);
+}
+
+.note {
+  font-size: var(--text-15);
+  line-height: 25px;
+  color: var(--color-body-dark);
+}
+
+.note a {
+  font-weight: var(--weight-medium);
+  color: var(--color-bg-dark);
+  text-decoration: underline;
+}
+
+/* the check box row sits 25px under the password control, the button 25px under the row */
+.rowTight {
+  margin-block: -5px -16px;
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 17px 21px 17px 24px;
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  transition: background-color var(--duration-fast) var(--ease);
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--color-primary);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.submit span {
+  text-box: trim-both cap alphabetic;
+}
+
+.textLink {
+  align-self: flex-start;
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+  padding-bottom: 3px; /* the underline sits just below the trimmed box; keeps 50px to the card edge */
+}
+
+.textLink:hover {
+  color: var(--color-primary);
+}
+
+/* form-level messages */
+.alert,
+.success {
+  padding: 14px 18px;
+  font-size: var(--text-15);
+  line-height: 24px;
+}
+
+.alert {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.success {
+  background: var(--color-bg-light-01);
+  color: var(--color-dark-01);
+}
+
+@media (max-width: 720px) {
+  .card {
+    padding: 30px 20px;
+  }
+}

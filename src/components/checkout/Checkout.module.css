@@ -1,0 +1,451 @@
+/* Checkout, Figma 3:22268 (1920 wide): hero ends y=590; coupon notice y=690 (70 tall); free-shipping box y=894;
+   billing form x=300 w=870; order panel x=1200 w=420 with a dashed outline. Text is placed by cap height. */
+.page {
+  padding-block: 100px;
+}
+
+.couponBar {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding-inline: 30px;
+  background: var(--color-bg-light-01);
+  border: 1px dashed var(--color-border-light);
+}
+
+.couponBar p {
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.inlineLink {
+  font-weight: var(--weight-medium);
+  color: var(--color-secondary);
+  text-decoration: underline;
+  text-decoration-thickness: 6.5%;
+  text-underline-offset: 3px;
+}
+
+.couponForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 21px;
+}
+
+.couponForm input {
+  width: 260px;
+  height: 54px;
+  padding: 0 16px;
+  border: 1px solid var(--color-border-light);
+  background: transparent;
+  font-size: var(--text-16);
+  letter-spacing: 0.16px;
+}
+
+.couponForm input::placeholder {
+  color: var(--color-dark-03);
+  opacity: 1;
+}
+
+.couponForm input:focus {
+  outline: none;
+  border-color: var(--color-dark-01);
+}
+
+.couponMessage {
+  flex-basis: 100%;
+  font-size: var(--text-14);
+  color: var(--color-secondary);
+}
+
+.dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 17px 21px 17px 24px;
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+  white-space: nowrap;
+}
+
+.dark:hover {
+  background: var(--color-primary);
+}
+
+.dark span,
+.place span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  text-box: trim-both cap alphabetic;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 870px 420px;
+  justify-content: space-between;
+  align-items: start;
+  margin-top: 59px;
+}
+
+.couponForm + .layout {
+  margin-top: 59px;
+}
+
+.heading {
+  margin-block: 60px 40px;
+  font-size: 40px;
+  font-weight: var(--weight-medium);
+  line-height: 50px;
+  letter-spacing: -0.4px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.pair {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---- order panel ---- */
+.panel {
+  padding: 29px 29px 24px; /* the 1px dashed outline counts toward the 30px inset in the design */
+  border: 1px dashed var(--color-border-light);
+}
+
+/* rules are drawn inside the box so they take no space: content sits 15px under a rule's top edge */
+.head,
+.item,
+.totals .grand {
+  position: relative;
+}
+
+.head::after,
+.item::after,
+.totals .grand::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  border-bottom: 1px dashed var(--color-border-light);
+}
+
+.panel h2 {
+  font-size: var(--text-20);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  letter-spacing: -0.2px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-bottom: 16px;
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  text-transform: uppercase;
+  color: var(--color-dark-03);
+}
+
+.head span {
+  text-box: trim-both cap alphabetic;
+}
+
+.items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-block: 14px 16px;
+}
+
+.thumb {
+  position: relative;
+  flex: none;
+  width: 90px;
+  height: 104.4px;
+  background: var(--color-bg-light-01);
+}
+
+.thumb img {
+  object-fit: cover;
+}
+
+.itemText {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemName {
+  font-size: var(--text-18);
+  font-weight: var(--weight-medium);
+  line-height: 28px;
+  letter-spacing: -0.18px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.itemName span {
+  font-weight: var(--weight-regular);
+  color: var(--color-dark-03);
+}
+
+.itemLabel {
+  margin-top: 17px;
+  font-size: var(--text-14);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  color: var(--color-dark-03);
+  text-box: trim-both cap alphabetic;
+}
+
+.itemPrice {
+  flex: none;
+  font-size: var(--text-16);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  text-transform: uppercase;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.totals {
+  margin: 0;
+  padding-top: 24.5px;
+}
+
+.totals > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 30.5px;
+}
+
+.totals dt {
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  text-transform: uppercase;
+  color: var(--color-dark-03);
+  text-box: trim-both cap alphabetic;
+}
+
+.totals dd {
+  margin: 0;
+  font-size: var(--text-16);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.totals .grand {
+  margin-bottom: 0;
+  padding-bottom: 25.5px;
+}
+
+.totals .grand dd {
+  font-size: var(--text-24);
+  letter-spacing: 0.24px;
+}
+
+.methods {
+  margin: 24px 0 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.method + .method {
+  margin-top: 20px;
+}
+
+.method label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 18px;
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 25px;
+  text-transform: uppercase;
+  color: var(--color-dark-01);
+  cursor: pointer;
+}
+
+.method label span:last-child {
+  text-box: trim-both cap alphabetic;
+}
+
+.method input {
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--color-dark-01);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.method input:checked + .radio {
+  border-color: var(--color-primary);
+  background: radial-gradient(circle, var(--color-primary) 0 4px, transparent 5px);
+}
+
+.method input:focus-visible + .radio {
+  outline: 2px solid var(--color-dark-01);
+  outline-offset: 2px;
+}
+
+.method p {
+  width: 326px;
+  max-width: 100%;
+  margin: 16px 0 0.5px 34px;
+  font-size: var(--text-15);
+  line-height: 25px;
+  color: var(--color-body-dark);
+  text-box: trim-both cap alphabetic;
+}
+
+.privacy {
+  margin-top: 25px;
+  font-size: var(--text-15);
+  line-height: 25px;
+  color: var(--color-body-dark);
+  text-box: trim-both cap alphabetic;
+}
+
+.privacy a {
+  font-weight: var(--weight-medium);
+  color: var(--color-bg-dark);
+  text-decoration: underline;
+}
+
+.terms {
+  margin-top: 25.5px;
+}
+
+.problem {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--color-primary);
+  font-size: var(--text-14);
+  line-height: 22px;
+  color: var(--color-primary);
+}
+
+.problem a {
+  text-decoration: underline;
+}
+
+.place {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 25.5px;
+  padding: 17px 21px 17px 40px;
+  background: var(--color-primary);
+  color: var(--color-light-01);
+  transition: background-color var(--duration-fast) var(--ease);
+}
+
+.place:hover:not(:disabled) {
+  background: var(--color-secondary);
+}
+
+.place:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.secure {
+  margin-top: 25px;
+  padding: 30px 0;
+  background: var(--color-bg-light-01);
+  text-align: center;
+}
+
+.secure p {
+  margin-bottom: 26px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-02);
+  text-box: trim-both cap alphabetic;
+}
+
+.secure img {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.error {
+  margin-top: 8px;
+  font-size: var(--text-14);
+  color: var(--color-primary);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-block: 40px;
+  text-align: center;
+}
+
+.empty h2 {
+  font-size: var(--text-24);
+  font-weight: var(--weight-medium);
+}
+
+.empty p {
+  color: var(--color-dark-02);
+}

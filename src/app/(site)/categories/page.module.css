@@ -1,0 +1,140 @@
+.section {
+  padding-block: 100px;
+}
+
+.intro {
+  max-width: 555px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: var(--text-14);
+  font-weight: var(--weight-semibold);
+  line-height: 24px;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.intro h2 {
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: var(--weight-regular);
+  line-height: 56px;
+}
+
+.intro p:last-child {
+  margin-top: 16px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  color: var(--color-dark-02);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.card {
+  position: relative;
+  display: block;
+  aspect-ratio: 308 / 420;
+  overflow: hidden;
+  background: var(--color-bg-light-01);
+}
+
+.card img {
+  object-fit: cover;
+  transition: transform 500ms var(--ease);
+}
+
+.card:hover img {
+  transform: scale(1.04);
+}
+
+.label {
+  position: absolute;
+  inset: auto 15px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 18px;
+  background: rgba(248, 245, 240, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.label strong {
+  font-size: var(--text-18);
+  font-weight: var(--weight-medium);
+  line-height: 28px;
+  letter-spacing: -0.18px;
+}
+
+.label span {
+  font-size: var(--text-14);
+  line-height: 24px;
+  color: var(--color-dark-03);
+}
+
+.count,
+.go {
+  position: absolute;
+  top: 15px;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease);
+}
+
+.count {
+  left: 15px;
+  padding: 3px 8px;
+  background: var(--color-primary);
+  color: var(--color-light-01);
+  font-size: var(--text-12);
+  line-height: 18px;
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
+}
+
+.go {
+  right: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-dark-01);
+  color: var(--color-light-01);
+}
+
+.card:hover .count,
+.card:hover .go,
+.card:focus-visible .count,
+.card:focus-visible .go {
+  opacity: 1;
+}
+
+.empty {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--color-dark-03);
+}
+
+@media (max-width: 1100px) {
+  .section {
+    padding-block: 56px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .intro h2 {
+    font-size: 2.25rem;
+    line-height: 1.15;
+  }
+}

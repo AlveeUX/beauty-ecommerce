@@ -1,0 +1,147 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  width: 420px;
+  max-width: 100%;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 8px 0 20px;
+  background: var(--color-bg-body);
+  border: 1px dashed var(--color-border-light);
+}
+
+.field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: var(--text-16);
+  color: var(--color-dark-01);
+}
+
+.field input::placeholder {
+  color: var(--color-dark-01);
+  opacity: 1;
+}
+
+.field input:focus-visible {
+  outline: none;
+}
+
+.field:focus-within {
+  border-style: solid;
+  border-color: var(--color-dark-01);
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 16px;
+  background: var(--color-primary);
+  color: var(--color-light-01);
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+}
+
+.submit:hover {
+  background: var(--color-secondary);
+}
+
+.agree {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-15);
+  line-height: 24px;
+  color: var(--color-dark-03);
+  cursor: pointer;
+}
+
+.agree a {
+  color: var(--color-dark-02);
+}
+
+.agree input {
+  position: absolute;
+  opacity: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--color-dark-01);
+  color: transparent;
+}
+
+.agree input:checked + .box {
+  background: var(--color-bg-dark);
+  border-color: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+.agree input:focus-visible + .box {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.error,
+.success {
+  margin-top: -14px;
+  min-height: 20px;
+  font-size: var(--text-14);
+}
+
+.error {
+  color: var(--color-primary);
+}
+
+.success {
+  color: var(--color-dark-02);
+}
+
+/* Home footer (dark) */
+.dark .field {
+  background: rgba(253, 251, 248, 0.06);
+  border-color: var(--color-border-dark);
+}
+
+.dark .field input,
+.dark .field input::placeholder {
+  color: var(--color-light-03);
+}
+
+.dark .field:focus-within {
+  border-color: var(--color-light-01);
+}
+
+.dark .agree,
+.dark .agree a {
+  color: var(--color-light-03);
+}
+
+.dark .box {
+  border-color: var(--color-light-03);
+}
+
+.dark .success {
+  color: var(--color-light-01);
+}

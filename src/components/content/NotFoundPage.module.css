@@ -1,0 +1,107 @@
+/* 404, Figma 3:28374 (1920 wide): "404" 296px Prata at y=212, headline y=511, text y=575, button y=643, footer y=795.
+   Two copies of the number are stacked, the dark one 4.4px right and 2.7px lower, and a 25px strip of the page
+   colour cuts through them at y=319. Text is placed by cap height. */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 102px 24px 100px;
+  text-align: center;
+}
+
+.digits {
+  position: relative;
+  width: 558px;
+  max-width: 100%;
+  height: 240px;
+  font-family: var(--font-display);
+  font-size: 296.148px;
+  line-height: 349px;
+  white-space: nowrap;
+}
+
+.digits span {
+  position: absolute;
+  top: 0;
+  text-box: trim-both cap alphabetic;
+}
+
+.shadow {
+  left: 4.43px;
+  top: 2.66px !important;
+  color: var(--color-dark-01);
+}
+
+.front {
+  left: 0;
+  color: var(--color-dark-03);
+}
+
+.digits::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 107px;
+  width: 100%;
+  height: 25px;
+  background: var(--color-bg-body);
+}
+
+.page h1 {
+  margin-top: 59px;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: var(--weight-regular);
+  line-height: 58px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.page p {
+  width: 609px;
+  max-width: 100%;
+  margin-top: 26px;
+  font-size: var(--text-16);
+  line-height: 26px;
+  letter-spacing: 0.16px;
+  color: var(--color-dark-02);
+  text-box: trim-both cap alphabetic;
+}
+
+.home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 228px;
+  height: 52px;
+  margin-top: 30px;
+  background: var(--color-primary);
+  color: var(--color-light-01);
+  transition: background-color var(--duration-fast) var(--ease);
+}
+
+.home:hover {
+  background: var(--color-secondary);
+}
+
+.home span {
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  text-box: trim-both cap alphabetic;
+}
+
+@media (max-width: 700px) {
+  .digits {
+    font-size: 150px;
+    line-height: 180px;
+    height: 120px;
+  }
+
+  .digits::after {
+    top: 54px;
+  }
+}

@@ -1,0 +1,74 @@
+/*
+ * Design tokens.
+ * Source: Figma file sXBQCd1Az2To21ejk56Yjc. Named colors come from the Figma
+ * styles reported by get_design_context (Dark-01, Primary, BG-Body, ...);
+ * sizes come from the measured frames (header 3:5777, footer 3:5861,
+ * product card 3:5157, page hero 3:4842). See decision-log D-018.
+ * Never hardcode a value that exists here.
+ */
+:root {
+  /* Color: text */
+  --color-dark-01: #211a18; /* primary text */
+  --color-dark-02: #4a403d;
+  --color-dark-03: #736f6d; /* muted text (Figma Dark03, kept exactly: decision-log D-033) */
+  --color-light-01: #fdfbf8; /* text on dark */
+  --color-light-02: #c4beb9; /* body text on dark */
+  --color-light-03: #9e9c9a; /* muted text on dark */
+
+  /* Color: surfaces */
+  --color-bg-body: #f8f5f0;
+  --color-bg-light-01: #eee9e1; /* cards, footer */
+  --color-bg-light-02: #dbd8d3; /* progress tracks (Figma "BG-Light-02") */
+  --color-body-dark: #4d4b46; /* paragraph text on light (Figma "Body dark") */
+  --color-bg-dark: #241c1b;
+  --color-white: #ffffff;
+
+  /* Color: brand */
+  --color-primary: #c7332b; /* CTA, badges, stars */
+  --color-accent-1: #431310; /* announcement bar */
+  --color-secondary: #8e2018; /* links, active filters (Figma style "Secondary") */
+  --color-accent-2: #356b4a; /* "Verified" (Figma style "Accent 2") */
+
+  /* Color: lines */
+  --color-border-light: #ccc8c2;
+  --color-border-dark: #514743;
+
+  /* Overlays (page hero) */
+  --overlay-hero-tint: rgba(142, 32, 24, 0.25);
+  --overlay-hero-shade: rgba(36, 28, 27, 0.3);
+
+  /* Typography */
+  /* The two Figma fonts, both Google Fonts: Instrument Sans (UI) and Prata (display). */
+  --font-sans:
+    "Instrument Sans Variable", "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Prata", Georgia, "Times New Roman", serif;
+  --font-script: "Allura", "Segoe Script", cursive; /* Home editorial banner (Figma: Allura) */
+
+  --text-12: 0.75rem;
+  --text-13: 0.8125rem;
+  --text-14: 0.875rem;
+  --text-15: 0.9375rem;
+  --text-16: 1rem;
+  --text-18: 1.125rem;
+  --text-20: 1.25rem;
+  --text-24: 1.5rem;
+  --text-56: 3.5rem;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* Layout */
+  --container: 1320px; /* content column measured at 1920 wide (x=300..1620) */
+  --gutter: 24px;
+  --header-gutter: 32px;
+  --topbar-height: 38px;
+  --header-main-height: 72px;
+
+  /* Shape */
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-fast: 150ms;
+}
