@@ -2,13 +2,13 @@
 
 Every page and overlay frame of the Figma file (`sXBQCd1Az2To21ejk56Yjc`), with its build status.
 **Rule:** when a frame is built and its tests pass, change ❌ to ✅ in this file in the same step, and note the decision-log entry.
-Node IDs come from `PRD.md` section 6.1. Last updated: 2026-10-20 (shop layouts, D-045).
+Node IDs come from `PRD.md` section 6.1. Last updated: 2026-10-20 (overlays, D-047).
 
 Legend: ✅ built and tested · ❌ not built yet
 
-**Totals: 55 of 59 frames built.** (The file has 60 frames; 3 are reference sheets, not pages, and are not listed.)
+**Totals: 59 of 59 frames built.** (The file has 60 frames; 3 are reference sheets, not pages, and are not listed.)
 
-## Shell and overlays (7 of 11)
+## Shell and overlays (11 of 11)
 
 | Status | Frame | Node | Notes |
 |---|---|---|---|
@@ -16,13 +16,13 @@ Legend: ✅ built and tested · ❌ not built yet
 | ✅ | Menu dropdown | `3:1749` | Dropdowns exist; the frame itself was not visually compared |
 | ✅ | Mega menu | `3:1452` | D-034 |
 | ✅ | Search overlay | `3:16254` | D-026 |
-| ❌ | Quick view | `3:1144` | Card's quick-view link opens the product page for now |
-| ❌ | Size guide | `3:14003` | |
-| ❌ | Share product | `3:14370` | |
+| ✅ | Quick view | `3:1144` | D-047 |
+| ✅ | Size guide | `3:14003` | D-047 |
+| ✅ | Share product | `3:14370` | D-047 |
 | ✅ | Compare popup | `3:15903` | D-036 |
 | ✅ | Empty cart drawer | `3:14744` | D-036 |
 | ✅ | Cart drawer | `3:15101` | D-036 |
-| ❌ | Wishlist (1000 px tall, likely a drawer) | `3:15517` | Purpose unverified |
+| ✅ | Wishlist popup ("Your wishlist (2)") | `3:15517` | Built in D-036; re-measured and restyled to the frame in D-047 (it was not a drawer) |
 
 ## Home (1 of 1)
 

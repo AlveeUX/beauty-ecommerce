@@ -1,0 +1,205 @@
+/* Share popup, Figma 3:14693: 543 x 474, 30px sides. Offsets from the popup's top: title cap +31, rule +75,
+   product +95 (image 88), rule +203, circles 50 at +233 with labels cap +303, address box 483 x 53 at +345,
+   note cap +428. */
+.box {
+  position: relative;
+  height: 474px;
+  padding: 0 30px;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 75px;
+  padding-top: 31px;
+}
+
+.head h2 {
+  font-size: var(--text-24);
+  font-weight: var(--weight-medium);
+  line-height: 30px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  margin-top: -1px;
+  color: var(--color-dark-01);
+}
+
+.close:hover {
+  color: var(--color-primary);
+}
+
+.product {
+  display: flex;
+  gap: 12px;
+  height: 128px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--color-border-light);
+  border-bottom: 1px dashed var(--color-border-light);
+}
+
+.thumb {
+  position: relative;
+  flex: none;
+  width: 88px;
+  height: 88px;
+  overflow: hidden;
+  background: var(--color-bg-light-01);
+}
+
+.thumb img {
+  object-fit: cover;
+}
+
+.name {
+  margin-top: 10px;
+  font-size: var(--text-16);
+  font-weight: var(--weight-medium);
+  line-height: 28px;
+  letter-spacing: -0.16px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.label {
+  margin-top: 15px;
+  font-size: var(--text-13);
+  line-height: 26px;
+  letter-spacing: 0.13px;
+  text-transform: uppercase;
+  color: var(--color-dark-03);
+  text-box: trim-both cap alphabetic;
+}
+
+.price {
+  display: flex;
+  gap: 4px;
+  margin-top: 20px;
+  font-size: var(--text-15);
+  line-height: 26px;
+  letter-spacing: 0.15px;
+  text-transform: uppercase;
+}
+
+.price > * {
+  text-box: trim-both cap alphabetic;
+}
+
+.price span {
+  font-weight: var(--weight-medium);
+  color: var(--color-dark-01);
+}
+
+.price s {
+  color: var(--color-light-03);
+}
+
+.platforms {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 30px;
+}
+
+.platforms a,
+.platforms button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-size: var(--text-16);
+  line-height: 25px;
+  letter-spacing: -0.16px;
+  color: var(--color-dark-02);
+}
+
+.platform {
+  text-box: trim-both cap alphabetic;
+}
+
+.circle {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background: var(--color-bg-light-01);
+  transition: background-color var(--duration-fast) var(--ease);
+}
+
+.platforms li:first-child .circle {
+  background: var(--color-primary); /* Facebook is the selected platform in the frame */
+}
+
+.platforms a:hover .circle,
+.platforms button:hover .circle,
+.platforms a:focus-visible .circle,
+.platforms button:focus-visible .circle {
+  background: var(--color-primary);
+}
+
+.platforms a:hover img,
+.platforms button:hover img,
+.platforms a:focus-visible img,
+.platforms button:focus-visible img {
+  filter: brightness(0) invert(1);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 53px;
+  margin-top: 30px;
+  padding: 0 6px 0 15px;
+  background: var(--color-bg-light-01);
+}
+
+.link input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  font-size: var(--text-15);
+  letter-spacing: -0.15px;
+  color: var(--color-dark-01);
+  text-overflow: ellipsis;
+}
+
+.link button {
+  flex: none;
+  width: 90px;
+  height: 41px;
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+  font-size: var(--text-15);
+  letter-spacing: -0.15px;
+  transition: background-color var(--duration-fast) var(--ease);
+}
+
+.link button:hover {
+  background: var(--color-primary);
+}
+
+.note {
+  margin-top: 30px;
+  font-size: var(--text-15);
+  line-height: 25px;
+  letter-spacing: -0.15px;
+  color: var(--color-dark-02);
+  text-box: trim-both cap alphabetic;
+}
+
+@media (max-width: 600px) {
+  .box {
+    height: auto;
+    padding-bottom: 30px;
+  }
+}

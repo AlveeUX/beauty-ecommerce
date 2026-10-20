@@ -1,10 +1,33 @@
 "use client";
 
+import Link from "next/link";
 import { useCart } from "@/components/cart/CartProvider";
+import { useListsUi } from "@/components/lists/ListsUi";
 import { Icon } from "@/components/ui/Icon";
 import { useCompareAction, useWishlistAction } from "@/components/lists/useListActions";
 
 type Props = { slug: string; name: string };
+
+/** Eye on a product card: opens the quick view (Figma 3:1366); without JavaScript it is a plain link to the page. */
+export function QuickViewLink({ slug, name }: Props) {
+  const { showQuickView } = useListsUi();
+  return (
+    <Link
+      href={`/product/${slug}`}
+      aria-label={`Quick view ${name}`}
+      data-testid="card-quickview"
+      onClick={(event) => {
+        // keep "open in new tab" and the like working
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0)
+          return;
+        event.preventDefault();
+        showQuickView(slug);
+      }}
+    >
+      <Icon name="eye" size={16} />
+    </Link>
+  );
+}
 
 /** Heart on a product card: toggles the guest wishlist (WSH-001). */
 export function WishlistToggle({ slug, name }: Props) {

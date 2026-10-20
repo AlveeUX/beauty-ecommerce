@@ -75,6 +75,7 @@ Purpose: record **why** development decisions were made, so that when something 
 | D-042 | 2026-10-20 | P10 | Blog: five list layouts, post page, moderated comments | APPROVED |
 | D-043 | 2026-10-20 | P10 | Newsletter sign-up persistence and welcome popup | APPROVED |
 | D-044 | 2026-10-20 | P10 | User answers on content pages: typos fixed, Home footer consent checkbox, reuse article text | APPROVED |
+| D-047 | 2026-10-20 | P4d | Quick view, size guide, share popup and wishlist popup (last four frames) | APPROVED |
 | D-046 | 2026-10-20 | P0 | Git repository created locally and first push to the user's GitHub repo | APPROVED |
 | D-045 | 2026-10-20 | P4c | The ten Shop listing layouts (sidebar, list, load more, top filter, horizontal, drawer) | APPROVED |
 
@@ -503,6 +504,17 @@ Visible differences: initials instead of reviewer photos; "Sort by" instead of t
 - **Visual baselines:** first left out of the commit (53 MB of screenshots from `tests/visual/*.mjs`), then **committed at the user's request** ("no matter the file size"); `tests/visual/references/` is committed too. Cost to remember: each re-capture adds new PNG versions to the Git history, which only ever grows.
 - **Rules from now on:** commit locally when a piece of work is finished; **ask before every push**; never force-push or rewrite history. Deploying (Vercel etc.) is still not approved.
 - **Decided by:** User.
+
+### D-047 · 2026-10-20 · P4d · APPROVED — Quick view, size guide, share popup and the wishlist popup (last four Figma frames)
+- **Approval:** the user said "Start the remaining four Figma frames". Frames: quick view `3:1144`, size guide `3:14003`, share product `3:14370`, "Wishlist page" `3:15517`. The last one is the **"Your wishlist (2)" popup**, not a drawer; it already existed (D-036), so my checklist wrongly listed it as missing. It was re-measured and restyled to the frame (see below).
+- **Quick view** (`QuickViewModal`, 1100 x 641): opens from the eye on every product card (the eye is still a normal link without JavaScript or with Ctrl/Shift-click). Data from the new `GET /api/products/quick?slug=` (default variant, images, rating, stock; 404 for unknown slugs). Image with previous/next arrows when the product has several pictures, badge, stock, name, description, rating with "Verified", price with unit, quantity, Add to cart (closes the popup and opens the cart drawer), Buy now (adds and goes to checkout) and "View more details". Text uses the product page's styles, placed by cap height.
+- **Size guide** (`SizeGuideModal`, 744 x 445): opened from a new "Size guide" link at the right of the size row on the product page (shown when a product has several sizes). A real table with the design's rows (Travel, Mini, Standard, Large, Jumbo). **The figures are the design's own and are generic; the client should confirm them** (they do not come from the products' real sizes).
+- **Share popup** (`ShareModal`, 543 x 474): replaces the old "copy the link" button. Product thumbnail, name, label and price; Facebook, X and Pinterest open their share pages in a new tab (`noopener`); **Instagram has no web share address, so it copies the link** and says so; the address box with Copy shows the product page's own URL (no layout or filter parameters). Facebook is shown selected (red) because the frame draws it that way; the others turn red on hover/focus.
+- **Wishlist popup:** now 543 wide with the frame's rows (portrait 90 x 104 thumbnail, 18 px name, price, green "In Stock", 121 x 41 Add to cart), dashed rules, footer band with two 231 x 52 buttons. It had been built from the screenshot with approximate sizes.
+- **Shared:** all four use the existing `Modal` (Escape, scrim click, focus trap, focus returns to the opener). `ListsUiProvider` also hosts the quick view.
+- **Fidelity:** measured with `tests/visual/overlay-shots.mjs`: size guide, share and wishlist boxes within 1-2 px (they are centred in the window, as in the frames); quick view geometry matches when the description is three lines as in the frame (the seed descriptions are two lines, so the column below it sits 26 px higher). The quick view is centred vertically; the frame places it 30 px lower.
+- **Tests:** `E2E-OVL-01..06` (quick view geometry, arrows, cart and buy now, size guide table, share links/copy, wishlist popup, axe on all four); `E2E-PRD-11` rewritten for the new share popup. Full run recorded below in the context file.
+- **Decided by:** User (scope); Claude (implementation, assumptions flagged above).
 
 ---
 

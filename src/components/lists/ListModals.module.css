@@ -88,46 +88,57 @@
   color: var(--color-light-01);
 }
 
-/* wishlist popup */
+/* wishlist popup, Figma 3:15840 (543 wide, 30px sides). From the popup's top: title cap +31, rule +75, first row
+   +95, rule +219, second row +239, footer band +374 (112 tall) with 231 x 52 buttons 36px below its top. */
 .head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  padding: 24px 24px 18px;
-  border-bottom: 1px solid var(--color-border-light);
+  height: 75px;
+  padding: 31px 30px 0;
+  border-bottom: 1px dashed var(--color-border-light);
 }
 
 .head h2 {
   font-size: var(--text-24);
   font-weight: var(--weight-medium);
-  line-height: 34px;
-  letter-spacing: -0.24px;
+  line-height: 30px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
 }
 
 .closeInline {
   display: inline-flex;
+  margin-top: -1px;
+  color: var(--color-dark-01);
+}
+
+.closeInline:hover {
+  color: var(--color-primary);
 }
 
 .rows {
-  padding: 0 24px;
+  padding: 0 30px;
 }
 
 .row {
   display: grid;
-  grid-template-columns: 24px 68px 1fr auto;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--color-border-light);
+  grid-template-columns: 12px 90px minmax(0, 1fr) 121px;
+  column-gap: 15px;
+  align-items: stretch;
+  padding: 20px 0;
+  border-bottom: 1px dashed var(--color-border-light);
 }
 
 .row:last-child {
+  padding-bottom: 30px;
   border-bottom: 0;
 }
 
 .rowRemove {
+  align-self: center;
   display: inline-flex;
-  color: var(--color-dark-03);
+  color: var(--color-dark-01);
 }
 
 .rowRemove:hover {
@@ -136,8 +147,8 @@
 
 .thumb {
   position: relative;
-  width: 68px;
-  height: 78px;
+  width: 90px;
+  height: 104px;
   background: var(--color-bg-light-01);
 }
 
@@ -145,32 +156,51 @@
   object-fit: cover;
 }
 
+.rowInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: -5px;
+  min-width: 0;
+}
+
 .rowName {
-  font-size: var(--text-16);
+  font-size: var(--text-18);
   font-weight: var(--weight-medium);
-  line-height: 24px;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
 }
 
 .rowPrice {
   display: flex;
-  gap: 6px;
-  font-size: var(--text-14);
-  line-height: 22px;
+  gap: 4px;
+  margin-top: 15px;
+  font-size: var(--text-15);
+  line-height: 26px;
+  letter-spacing: 0.15px;
+  text-transform: uppercase;
+}
+
+.rowPrice > * {
+  text-box: trim-both cap alphabetic;
 }
 
 .rowPrice s {
-  opacity: 0.5;
+  color: var(--color-light-03);
 }
 
 .rowPrice span {
   font-weight: var(--weight-medium);
+  color: var(--color-dark-01);
 }
 
 .stock {
-  margin-top: 8px;
+  margin-top: auto;
   font-size: var(--text-14);
-  line-height: 22px;
+  line-height: 26px;
   color: var(--color-accent-2);
+  text-box: trim-both cap alphabetic;
 }
 
 .stock[data-out] {
@@ -178,9 +208,15 @@
 }
 
 .rowAdd {
-  padding: 12px 18px;
+  align-self: end;
+  height: 41px;
   background: var(--color-bg-dark);
   color: var(--color-light-01);
+  transition: background-color var(--duration-fast) var(--ease);
+}
+
+.rowAdd:hover:not(:disabled) {
+  background: var(--color-primary);
 }
 
 .rowAdd:disabled {
@@ -191,25 +227,30 @@
 .rowAdd span {
   font-size: var(--text-14);
   font-weight: var(--weight-medium);
-  line-height: 22px;
+  line-height: 26px;
   letter-spacing: 0.14px;
   text-transform: uppercase;
   white-space: nowrap;
+  text-box: trim-both cap alphabetic;
 }
 
 .emptyLine {
-  padding: 32px 24px;
+  padding: 32px 30px;
   color: var(--color-dark-02);
 }
 
 .foot {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  padding: 24px;
+  grid-template-columns: 231px 231px;
+  column-gap: 20px;
+  padding: 36px 30px 24px;
   background: var(--color-bg-light-01);
 }
 
-.foot .outline {
+.foot .outline,
+.foot .primary {
+  width: 231px;
+  height: 52px;
   margin-top: 0;
+  padding: 0;
 }

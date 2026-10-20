@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { formatMoney } from "@/lib/money";
 import { Rating } from "@/components/ui/Rating";
-import { AddButton, CompareToggle, QuickAdd, WishlistToggle } from "./CardActions";
+import { AddButton, CompareToggle, QuickAdd, QuickViewLink, WishlistToggle } from "./CardActions";
 import type { ProductBadge, ProductSummary } from "@/lib/catalog-types";
 import styles from "./ProductCard.module.css";
 
@@ -45,7 +45,7 @@ type ProductCardProps = {
 
 /**
  * Product card. Figma 3:5157 (308 x 509: 308 x 359 image, 150 body on BG-Light-01).
- * Hover actions are wired to cart/wishlist/compare state in P5; quick view is a link for now.
+ * Hover actions: quick view popup, compare, wishlist and add to cart.
  */
 export function ProductCard({
   product,
@@ -81,9 +81,7 @@ export function ProductCard({
         {soldOut ? <span className={styles.soldOut}>Out of stock</span> : null}
         <ul className={styles.actions}>
           <li>
-            <Link href={href} aria-label={`Quick view ${product.name}`}>
-              <Icon name="eye" size={16} />
-            </Link>
+            <QuickViewLink slug={product.slug} name={product.name} />
           </li>
           <li>
             <CompareToggle slug={product.slug} name={product.name} />

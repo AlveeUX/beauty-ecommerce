@@ -170,13 +170,19 @@ test.describe("Product details", () => {
     await expect.poll(async () => track.evaluate((el) => el.scrollLeft)).toBeGreaterThan(start);
   });
 
-  test("E2E-PRD-11 share copies a link without errors", async ({ page, context }) => {
+  test("E2E-PRD-11 share opens the popup and Copy puts the product address on the clipboard", async ({
+    page,
+    context,
+  }) => {
     await context.grantPermissions(["clipboard-read", "clipboard-write"]);
-    await page.goto("/product/the-renewal-serum");
+    await page.goto("/product/the-renewal-serum?layout=thumbnail-left");
     await page.getByTestId("share").click();
-    await expect(page.getByTestId("share")).toContainText("Link copied");
-    expect(await page.evaluate(() => navigator.clipboard.readText())).toContain(
-      "/product/the-renewal-serum",
+    await expect(page.getByTestId("share-modal")).toBeVisible();
+    await page.getByTestId("share-copy").click();
+    await expect(page.getByTestId("share-copy")).toHaveText("Copied");
+    // the address is the product page itself, without the layout parameter
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(
+      /\/product\/the-renewal-serum$/,
     );
   });
 });

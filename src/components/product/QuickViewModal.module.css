@@ -1,0 +1,204 @@
+/* Quick view, Figma 3:1366: 1100 x 641, image column 550, text column 490 with 30px sides.
+   Offsets from the popup's top: badge row +30, title +81, description +143, rating +237, price +289,
+   quantity row +352, Buy now +419, "View more details" +582. The text itself uses the product page styles. */
+.close {
+  position: absolute;
+  z-index: 3;
+  top: 15px;
+  right: 15px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  color: var(--color-dark-01);
+}
+
+.close:hover {
+  color: var(--color-primary);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 550px minmax(0, 1fr);
+  height: 641px;
+}
+
+.media {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-light-01);
+}
+
+.media img {
+  object-fit: cover;
+}
+
+.arrow {
+  position: absolute;
+  top: 301px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-bg-body);
+  color: var(--color-dark-01);
+  transition:
+    background-color var(--duration-fast) var(--ease),
+    color var(--duration-fast) var(--ease);
+}
+
+.arrow:hover {
+  background: var(--color-bg-dark);
+  color: var(--color-light-01);
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 30px 30px 41px;
+}
+
+/* text placed by cap height, 30 or 40px apart as in the frame (title +81, description +143, rating +237,
+   price +289, quantity row +352) */
+.status {
+  min-height: 21px;
+  gap: 12px;
+}
+
+.status > * {
+  display: inline-flex;
+  align-items: center;
+  height: 21px;
+  padding-block: 0;
+  line-height: 1;
+}
+
+.title {
+  margin-top: 30px;
+  line-height: 50px;
+  text-box: trim-both cap alphabetic;
+}
+
+.description {
+  width: 443px;
+  max-width: 100%;
+  margin-top: 30px;
+  text-box: trim-both cap alphabetic;
+}
+
+.rating {
+  height: 12px;
+  margin-top: 30px;
+  line-height: 12px;
+}
+
+.price {
+  margin-top: 40px;
+  gap: 8px;
+}
+
+.price > * {
+  line-height: 42px;
+  text-box: trim-both cap alphabetic;
+}
+
+.buy {
+  display: grid;
+  grid-template-columns: 131px minmax(0, 1fr);
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.buyNow {
+  grid-column: 1 / -1;
+}
+
+.more {
+  position: relative;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 18px;
+  margin-top: auto;
+  font-size: var(--text-14);
+  font-weight: var(--weight-medium);
+  line-height: 26px;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  color: var(--color-dark-01);
+}
+
+.more span {
+  text-box: trim-both cap alphabetic;
+}
+
+.more::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  bottom: 0;
+  width: 161px;
+  height: 1px;
+  background: var(--color-dark-01);
+}
+
+.more:hover {
+  color: var(--color-primary);
+}
+
+.more:hover::after {
+  background: var(--color-primary);
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 320px;
+  padding: 40px;
+  text-align: center;
+  font-size: var(--text-16);
+  color: var(--color-dark-02);
+}
+
+.message h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-24);
+  font-weight: var(--weight-regular);
+  color: var(--color-dark-01);
+}
+
+.message a {
+  text-decoration: underline;
+}
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .media {
+    aspect-ratio: 1;
+  }
+
+  .arrow {
+    top: calc(50% - 20px);
+  }
+
+  .more {
+    margin-top: 30px;
+  }
+}

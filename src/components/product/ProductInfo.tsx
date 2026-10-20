@@ -14,6 +14,8 @@ import type { PdpLayout } from "@/lib/pdp-layouts";
 import { ColorSwatches, type Swatch } from "./ColorSwatches";
 import { Countdown } from "./Countdown";
 import { PurchaseOptions, type PurchasePlan } from "./PurchaseOptions";
+import { ShareModal } from "./ShareModal";
+import { SizeGuideModal } from "./SizeGuideModal";
 import extras from "./PurchaseExtras.module.css";
 import styles from "./ProductInfo.module.css";
 
@@ -67,7 +69,7 @@ export function ProductInfo(props: ProductInfoProps) {
   const { name, badge, shortDescription, rating, reviewCount, variants, categories, tags } = props;
   const [variantId, setVariantId] = useState(props.defaultVariantId);
   const [qty, setQty] = useState(1);
-  const [copied, setCopied] = useState(false);
+  const [modal, setModal] = useState<"size-guide" | "share" | null>(null);
   const layout = props.layout ?? "details-default";
   const colors = props.colors ?? [];
   const [color, setColor] = useState(colors[0]?.slug ?? "");
@@ -91,18 +93,6 @@ export function ProductInfo(props: ProductInfoProps) {
   function selectVariant(id: number) {
     setVariantId(id);
     setQty(1);
-  }
-
-  async function share() {
-    const url = window.location.href;
-    try {
-      if (navigator.share) await navigator.share({ title: name, url });
-      else await navigator.clipboard.writeText(url);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // user cancelled or clipboard unavailable: nothing to do
-    }
   }
 
   return (
@@ -164,6 +154,17 @@ export function ProductInfo(props: ProductInfoProps) {
               {displaySize(v.sizeLabel)}
             </button>
           ))}
+          <button
+            type="button"
+            className={styles.sizeGuide}
+            onClick={() => setModal("size-guide")}
+            aria-haspopup="dialog"
+            data-testid="size-guide-link"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/share/size-guide.svg" alt="" width={15} height={15} />
+            <span>Size guide</span>
+          </button>
         </div>
       ) : null}
 
@@ -254,9 +255,14 @@ export function ProductInfo(props: ProductInfoProps) {
           </button>
         </li>
         <li>
-          <button type="button" onClick={share} data-testid="share">
+          <button
+            type="button"
+            onClick={() => setModal("share")}
+            aria-haspopup="dialog"
+            data-testid="share"
+          >
             <Icon name="share" size={16} />
-            {copied ? "Link copied" : "Share"}
+            Share
           </button>
         </li>
       </ul>
@@ -307,6 +313,10 @@ export function ProductInfo(props: ProductInfoProps) {
           unoptimized
         />
       </div>
+      {modal === "size-guide" ? <SizeGuideModal onClose={() => setModal(null)} /> : null}
+      {modal === "share" ? (
+        <ShareModal slug={props.slug} name={name} onClose={() => setModal(null)} />
+      ) : null}
     </div>
   );
 }

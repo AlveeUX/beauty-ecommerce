@@ -1,0 +1,89 @@
+/* Size guide, Figma 3:14326: 744 x 445. Title cap-top +35, table 684 x 288 at +82 (rows 48, columns 228,
+   text 15px in from each line), note cap-top +399. */
+.box {
+  height: 445px;
+  padding: 0 30px;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 82px;
+  padding-top: 35px;
+}
+
+.head h2 {
+  font-size: var(--text-24);
+  font-weight: var(--weight-medium);
+  line-height: 30px;
+  color: var(--color-dark-01);
+  text-box: trim-both cap alphabetic;
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  margin-top: -6px;
+  color: var(--color-dark-01);
+}
+
+.close:hover {
+  color: var(--color-primary);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  height: 287px;
+  border: 1px dashed var(--color-border-light);
+}
+
+.table th,
+.table td {
+  height: 48px;
+  padding: 0 15px;
+  border: 1px dashed var(--color-border-light);
+  text-align: left;
+  font-size: var(--text-16);
+  letter-spacing: -0.16px;
+  color: var(--color-dark-02);
+}
+
+.table thead th {
+  font-size: var(--text-15);
+  font-weight: var(--weight-medium);
+  letter-spacing: -0.15px;
+  color: var(--color-secondary);
+}
+
+.table tbody th {
+  font-weight: var(--weight-medium);
+  color: var(--color-dark-01);
+}
+
+.note {
+  margin-top: 30px;
+  padding-left: 7px;
+  font-size: var(--text-15);
+  line-height: 25px;
+  letter-spacing: -0.15px;
+  color: var(--color-dark-02);
+  text-box: trim-both cap alphabetic;
+}
+
+@media (max-width: 760px) {
+  .box {
+    height: auto;
+    padding-bottom: 30px;
+  }
+
+  .table th,
+  .table td {
+    padding: 0 8px;
+    font-size: var(--text-14);
+  }
+}

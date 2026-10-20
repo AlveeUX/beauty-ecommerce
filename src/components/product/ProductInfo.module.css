@@ -119,6 +119,24 @@
   text-transform: uppercase;
 }
 
+.sizeGuide {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+  font-size: 0.8125rem;
+  font-weight: var(--weight-medium);
+  line-height: 23px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 7%;
+  color: var(--color-dark-01);
+}
+
+.sizeGuide:hover {
+  color: var(--color-primary);
+}
+
 .size {
   padding: 12px 14px;
   border: 1px dashed var(--color-border-light);

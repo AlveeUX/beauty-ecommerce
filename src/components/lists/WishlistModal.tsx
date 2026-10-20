@@ -37,7 +37,7 @@ export function WishlistModal({ onClose }: { onClose: () => void }) {
   const visible = (items ?? []).filter((p) => slugs.includes(p.slug));
 
   return (
-    <Modal titleId="wishlist-modal-title" width={540} onClose={onClose} testId="wishlist-modal">
+    <Modal titleId="wishlist-modal-title" width={543} onClose={onClose} testId="wishlist-modal">
       <header className={styles.head}>
         <h2 id="wishlist-modal-title">Your wishlist ({slugs.length})</h2>
         <button type="button" className={styles.closeInline} aria-label="Close" onClick={onClose}>
@@ -65,7 +65,7 @@ export function WishlistModal({ onClose }: { onClose: () => void }) {
                 onClick={onClose}
                 aria-label={p.name}
               >
-                {p.image ? <Image src={p.image} alt="" fill sizes="52px" /> : null}
+                {p.image ? <Image src={p.image} alt="" fill sizes="90px" /> : null}
               </Link>
               <div className={styles.rowInfo}>
                 <p className={styles.rowName}>{p.name}</p>
