@@ -6,7 +6,7 @@ Node IDs come from `PRD.md` section 6.1. Last updated: 2026-10-20 (overlays, D-0
 
 Legend: ✅ built and tested · ❌ not built yet
 
-**Totals: 59 of 59 frames built.** (The file has 60 frames; 3 are reference sheets, not pages, and are not listed.)
+**Totals: 57 of 57 page and overlay frames built.** (The file has 60 frames; 3 are reference sheets, not pages, and are not listed. Earlier versions of this file said 59 by mistake; counting the rows below gives 57.)
 
 ## Shell and overlays (11 of 11)
 
@@ -83,7 +83,7 @@ Legend: ✅ built and tested · ❌ not built yet
 | ✅ | Forgot password | `3:23424` | D-037 |
 | ✅ | Track order | `3:23740` | D-037 |
 
-## Content (14 of 14)
+## Content (12 of 12)
 
 | Status | Frame | Node | Notes |
 |---|---|---|---|
