@@ -24,7 +24,7 @@ export const dynamic = "force-dynamic"; // price, stock and publication changes 
 
 type Props = {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ layout?: string }>;
+  searchParams: Promise<{ layout?: string; sticky?: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProductPage({ params, searchParams }: Props) {
   const { slug } = await params;
-  const { layout: requested } = await searchParams;
+  const { layout: requested, sticky } = await searchParams;
   const db = getDb();
   const product = getProductBySlug(db, slug); // drafts/archived products are not public (BR-10)
   if (!product) notFound();
@@ -97,6 +97,8 @@ export default async function ProductPage({ params, searchParams }: Props) {
             colors={product.colors}
             saleEndsAt={product.saleEndsAt ? product.saleEndsAt.getTime() : null}
             serverNow={currentTimeMs()}
+            sticky={sticky === "1"}
+            image={product.images[0]?.url}
           />
         </div>
       </section>

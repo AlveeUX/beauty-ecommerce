@@ -23,20 +23,11 @@ export type MegaPromo = { label: string; href: string; image: string; alt: strin
 
 const SHOP = "/shop";
 const PRODUCT = "/product/the-renewal-serum";
-const variant = (label: string, href: string, badge?: NavBadge): MenuLink => ({
-  label,
-  href,
-  badge,
-  built: false,
-  match: false,
-});
-
 const built = (label: string, href: string, badge?: NavBadge): MenuLink => ({
   label,
   href,
   badge,
   built: true,
-  match: false,
 });
 
 export const SHOP_MEGA: { columns: MegaColumn[]; promos: MegaPromo[] } = {
@@ -53,65 +44,59 @@ export const SHOP_MEGA: { columns: MegaColumn[]; promos: MegaPromo[] } = {
         built("Top filter", `${SHOP}?layout=top-filter`, "new"),
         built("Horizontal filter", `${SHOP}?layout=horizontal`),
         built("Filter drawer", `${SHOP}?layout=filter-drawer`),
-        variant("Grid 3 columns", SHOP),
-        variant("Grid 4 columns", SHOP),
+        // the frames have no pages of their own for these two: they open the matching built layout
+        // (three columns with the left sidebar, four columns with the top filter) and never highlight
+        { label: "Grid 3 columns", href: `${SHOP}?layout=left`, built: true, match: false },
+        { label: "Grid 4 columns", href: `${SHOP}?layout=top-filter`, built: true, match: false },
       ],
     },
     {
       title: "Shop details",
       links: [
-        { label: "Detail default", href: PRODUCT, built: true, match: false },
+        { label: "Detail default", href: PRODUCT, built: true },
         {
           label: "Subscribe & save",
           href: `${PRODUCT}?layout=subscribe-and-save`,
           built: true,
-          match: false,
           badge: "hot",
         },
         {
           label: "On sale countdown",
           href: `${PRODUCT}?layout=on-sale-countdown`,
           built: true,
-          match: false,
         },
         {
           label: "Thumbnail left",
           href: `${PRODUCT}?layout=thumbnail-left`,
           built: true,
-          match: false,
         },
         {
           label: "Thumbnail right",
           href: `${PRODUCT}?layout=thumbnail-right`,
           built: true,
-          match: false,
         },
         {
           label: "Gallery 1 column",
           href: `${PRODUCT}?layout=gallery-1-column`,
           built: true,
-          match: false,
         },
         {
           label: "Gallery 2 column",
           href: `${PRODUCT}?layout=gallery-2-column`,
           built: true,
-          match: false,
         },
         { label: "Out of stock", href: "/product/glass-glow-primer", built: true },
-        variant("Sticky add to card", PRODUCT),
+        { label: "Sticky add to card", href: `${PRODUCT}?sticky=1`, built: true },
         {
           label: "Inner zoom",
           href: `${PRODUCT}?layout=inner-zoom`,
           built: true,
-          match: false,
           badge: "hot",
         },
         {
           label: "External zoom",
           href: `${PRODUCT}?layout=external-zoom`,
           built: true,
-          match: false,
         },
       ],
     },
@@ -121,7 +106,7 @@ export const SHOP_MEGA: { columns: MegaColumn[]; promos: MegaPromo[] } = {
         { label: "Cart", href: "/cart" },
         { label: "Wishlist", href: "/wishlist" },
         { label: "Checkout", href: "/checkout" },
-        { label: "My account", href: "/login" },
+        { label: "My account", href: "/account" },
         { label: "Order track", href: "/track-order", badge: "hot" },
         { label: "Compare", href: "/compare", badge: "new" },
         { label: "Store locator", href: "/store-locator" },

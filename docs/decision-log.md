@@ -75,6 +75,7 @@ Purpose: record **why** development decisions were made, so that when something 
 | D-042 | 2026-10-20 | P10 | Blog: five list layouts, post page, moderated comments | APPROVED |
 | D-043 | 2026-10-20 | P10 | Newsletter sign-up persistence and welcome popup | APPROVED |
 | D-044 | 2026-10-20 | P10 | User answers on content pages: typos fixed, Home footer consent checkbox, reuse article text | APPROVED |
+| D-049 | 2026-10-20 | P2 | Shop mega menu: all entries checked against the frame; targets and highlight fixed | APPROVED |
 | D-048 | 2026-10-20 | P2 | Home header dropdowns use the light "Menu dropdown" panel | APPROVED |
 | D-047 | 2026-10-20 | P4d | Quick view, size guide, share popup and wishlist popup (last four frames) | APPROVED |
 | D-046 | 2026-10-20 | P0 | Git repository created locally and first push to the user's GitHub repo | APPROVED |
@@ -522,6 +523,16 @@ Visible differences: initials instead of reviewer photos; "Sort by" instead of t
 - **Done:** the Home header's dropdowns (Categories, Pages, Journal) now use the same panel as the other pages: cream background, 270 wide, dashed top rule, dark uppercase items 37 px apart, hover red, the current page red and underlined, badges kept. Verified with `tests/visual/menu-shots.mjs` (panel 270 wide, rgb(248,245,240) on Home and on `/about`). The Shop mega menu is unchanged.
 - **Tests:** home, a11y and shell specs 41/41.
 - **Decided by:** User.
+
+### D-049 · 2026-10-20 · P2 · APPROVED — Shop mega menu: every entry checked against Figma `3:1452` and made to open the right page
+- **Request:** "from the Mega menu make sure all the page connection is right. the navigation should be perfectly match from the Mega menu".
+- **Audit result:** labels, order and badges (HOT/NEW) already matched the frame in all three columns (11 + 11 + 8 entries) and the two promo cards. Targets that were wrong or weak were fixed:
+  - **Grid 3 columns / Grid 4 columns** (no frame of their own) used to open the plain shop; they now open the matching built layout (three columns with the left sidebar; four columns with the top filter). **Assumption**, since the design draws no separate page; they never highlight, to avoid two entries lighting up for one page.
+  - **Sticky add to card** (no frame) used to open the plain product page; it now opens the product page with a sticky add-to-cart bar (`?sticky=1`: picture, name, price and Add to cart, shown after the page's own buttons scroll out of view). **The bar's look is an Assumption**; it is not a Figma layout, so the ten Figma product layouts are unchanged.
+  - **My account** opened the login page for everyone; it now opens `/account`, which sends signed-out visitors to the login page.
+- **Highlighting:** the current page's entry is red and underlined, and now follows the layout: `/shop?layout=right` lights "Grid right sidebar", not "Shop default"; each product layout lights its own entry; filters and paging are ignored. `NavLink` compares the `layout` and `sticky` parameters. The Pages and Journal dropdowns use the same logic.
+- **Tests:** `E2E-MEG-01..05` open every entry of all three columns and both promos and check the destination, the layout and the highlight. Mega menu spec 5/5.
+- **Decided by:** User; Claude (assumptions flagged above).
 
 ---
 
