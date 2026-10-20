@@ -500,7 +500,7 @@ Visible differences: initials instead of reviewer photos; "Sort by" instead of t
 - **Approval:** the user asked to "initialize Git locally first" and gave their own repository, `https://github.com/AlveeUX/beauty-ecommerce.git`, to push to.
 - **Done:** `git init -b main`; first commit `ae7c5fc` (555 files); `origin` added; `main` pushed (the remote was empty, a plain push, no force).
 - **Checks before the commit:** no secrets found (pattern scan for keys and tokens); only `.env.example` and `uploads/.gitkeep` of the env/upload files are tracked; databases, `.next`, `node_modules`, test output are ignored.
-- **Not committed on purpose:** `tests/visual/baselines/` (53 MB of screenshots written by the `tests/visual/*.mjs` scripts; now in `.gitignore`, regenerate with the scripts). `tests/visual/references/` (the Figma export the diff scripts use, 8 MB) is committed.
+- **Visual baselines:** first left out of the commit (53 MB of screenshots from `tests/visual/*.mjs`), then **committed at the user's request** ("no matter the file size"); `tests/visual/references/` is committed too. Cost to remember: each re-capture adds new PNG versions to the Git history, which only ever grows.
 - **Rules from now on:** commit locally when a piece of work is finished; **ask before every push**; never force-push or rewrite history. Deploying (Vercel etc.) is still not approved.
 - **Decided by:** User.
 
