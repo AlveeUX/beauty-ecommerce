@@ -4,7 +4,7 @@ Read first, in this order: `docs/context.md` (current state), `docs/decision-log
 
 ## Rules
 
-- **Local only.** No `git init`, GitHub push, Vercel/deploy, production config, real payment/shipping/email providers, or remote DB without explicit user approval.
+- **Local only, except Git.** The user approved a local Git repo and one GitHub remote, `https://github.com/AlveeUX/beauty-ecommerce.git` (D-046). Commit locally as work is finished; **ask before each push**. Still needing explicit approval: Vercel/deploy, production config, real payment/shipping/email providers, remote DB, any other remote. Never rewrite history or force-push.
 - **One phase/task at a time** per `docs/development-plan.md`. Do not start the next phase without user approval. Define the task contract (plan section 3) before coding.
 - **Figma is the visual source of truth** (file key `sXBQCd1Az2To21ejk56Yjc`). Fetch the specific frame via Figma MCP before building it; never fetch the whole page; never commit temporary Figma asset URLs. Use design tokens, not hardcoded values.
 - **No module is done until** its E2E lifecycle passes (`docs/e2e-testing-strategy.md` section 3). Never report an unrun test as passed.

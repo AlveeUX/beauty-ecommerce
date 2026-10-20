@@ -75,6 +75,7 @@ Purpose: record **why** development decisions were made, so that when something 
 | D-042 | 2026-10-20 | P10 | Blog: five list layouts, post page, moderated comments | APPROVED |
 | D-043 | 2026-10-20 | P10 | Newsletter sign-up persistence and welcome popup | APPROVED |
 | D-044 | 2026-10-20 | P10 | User answers on content pages: typos fixed, Home footer consent checkbox, reuse article text | APPROVED |
+| D-046 | 2026-10-20 | P0 | Git repository created locally and first push to the user's GitHub repo | APPROVED |
 | D-045 | 2026-10-20 | P4c | The ten Shop listing layouts (sidebar, list, load more, top filter, horizontal, drawer) | APPROVED |
 
 ---
@@ -494,6 +495,14 @@ Visible differences: initials instead of reviewer photos; "Sort by" instead of t
 - **Not built:** the dropdown/panel/drawer filters below 1100 px are basic (P11); in the list layouts the "quick view" hover icons are the same as the grid card's.
 - **Tests:** `E2E-SHP-01..07`, shop pages added to axe (list-left, top-filter, horizontal); `catalog.spec` unchanged and passing. Combined run of shop-layouts, catalog and a11y: 43/43.
 - **Decided by:** User (scope); Claude (implementation, assumptions flagged above).
+
+### D-046 · 2026-10-20 · P0 · APPROVED — Git repository and first push to GitHub (supersedes the "no Git" part of D-002)
+- **Approval:** the user asked to "initialize Git locally first" and gave their own repository, `https://github.com/AlveeUX/beauty-ecommerce.git`, to push to.
+- **Done:** `git init -b main`; first commit `ae7c5fc` (555 files); `origin` added; `main` pushed (the remote was empty, a plain push, no force).
+- **Checks before the commit:** no secrets found (pattern scan for keys and tokens); only `.env.example` and `uploads/.gitkeep` of the env/upload files are tracked; databases, `.next`, `node_modules`, test output are ignored.
+- **Not committed on purpose:** `tests/visual/baselines/` (53 MB of screenshots written by the `tests/visual/*.mjs` scripts; now in `.gitignore`, regenerate with the scripts). `tests/visual/references/` (the Figma export the diff scripts use, 8 MB) is committed.
+- **Rules from now on:** commit locally when a piece of work is finished; **ask before every push**; never force-push or rewrite history. Deploying (Vercel etc.) is still not approved.
+- **Decided by:** User.
 
 ---
 
